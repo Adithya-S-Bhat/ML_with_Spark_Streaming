@@ -1,0 +1,212 @@
+21/11/06 12:29:03 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+21/11/06 12:29:03 INFO SparkContext: Running Spark version 3.1.2
+21/11/06 12:29:03 INFO ResourceUtils: ==============================================================
+21/11/06 12:29:03 INFO ResourceUtils: No custom resources configured for spark.driver.
+21/11/06 12:29:03 INFO ResourceUtils: ==============================================================
+21/11/06 12:29:03 INFO SparkContext: Submitted application: client.py
+21/11/06 12:29:03 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+21/11/06 12:29:03 INFO ResourceProfile: Limiting resource is cpu
+21/11/06 12:29:03 INFO ResourceProfileManager: Added ResourceProfile id: 0
+21/11/06 12:29:03 INFO SecurityManager: Changing view acls to: pes1ug19cs027
+21/11/06 12:29:03 INFO SecurityManager: Changing modify acls to: pes1ug19cs027
+21/11/06 12:29:03 INFO SecurityManager: Changing view acls groups to: 
+21/11/06 12:29:03 INFO SecurityManager: Changing modify acls groups to: 
+21/11/06 12:29:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(pes1ug19cs027); groups with view permissions: Set(); users  with modify permissions: Set(pes1ug19cs027); groups with modify permissions: Set()
+21/11/06 12:29:04 INFO Utils: Successfully started service 'sparkDriver' on port 45409.
+21/11/06 12:29:04 INFO SparkEnv: Registering MapOutputTracker
+21/11/06 12:29:04 INFO SparkEnv: Registering BlockManagerMaster
+21/11/06 12:29:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+21/11/06 12:29:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+21/11/06 12:29:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+21/11/06 12:29:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-21692ab4-5c73-473d-b32b-2f42fa1fc094
+21/11/06 12:29:04 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+21/11/06 12:29:04 INFO SparkEnv: Registering OutputCommitCoordinator
+21/11/06 12:29:04 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+21/11/06 12:29:04 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://pes1ug19cs027:4040
+21/11/06 12:29:05 INFO Executor: Starting executor ID driver on host pes1ug19cs027
+21/11/06 12:29:05 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 32939.
+21/11/06 12:29:05 INFO NettyBlockTransferService: Server created on pes1ug19cs027:32939
+21/11/06 12:29:05 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+21/11/06 12:29:05 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, pes1ug19cs027, 32939, None)
+21/11/06 12:29:05 INFO BlockManagerMasterEndpoint: Registering block manager pes1ug19cs027:32939 with 366.3 MiB RAM, BlockManagerId(driver, pes1ug19cs027, 32939, None)
+21/11/06 12:29:05 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, pes1ug19cs027, 32939, None)
+21/11/06 12:29:05 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, pes1ug19cs027, 32939, None)
+21/11/06 12:29:06 INFO ReceiverTracker: Starting 1 receivers
+21/11/06 12:29:06 INFO ReceiverTracker: ReceiverTracker started
+21/11/06 12:29:06 INFO SocketInputDStream: Slide time = 10000 ms
+21/11/06 12:29:06 INFO SocketInputDStream: Storage level = Serialized 1x Replicated
+21/11/06 12:29:06 INFO SocketInputDStream: Checkpoint interval = null
+21/11/06 12:29:06 INFO SocketInputDStream: Remember interval = 10000 ms
+21/11/06 12:29:06 INFO SocketInputDStream: Initialized and validated org.apache.spark.streaming.dstream.SocketInputDStream@55503e72
+21/11/06 12:29:06 INFO ForEachDStream: Slide time = 10000 ms
+21/11/06 12:29:06 INFO ForEachDStream: Storage level = Serialized 1x Replicated
+21/11/06 12:29:06 INFO ForEachDStream: Checkpoint interval = null
+21/11/06 12:29:06 INFO ForEachDStream: Remember interval = 10000 ms
+21/11/06 12:29:06 INFO ForEachDStream: Initialized and validated org.apache.spark.streaming.dstream.ForEachDStream@2c66b64f
+21/11/06 12:29:06 INFO SocketInputDStream: Slide time = 10000 ms
+21/11/06 12:29:06 INFO SocketInputDStream: Storage level = Serialized 1x Replicated
+21/11/06 12:29:06 INFO SocketInputDStream: Checkpoint interval = null
+21/11/06 12:29:06 INFO SocketInputDStream: Remember interval = 10000 ms
+21/11/06 12:29:06 INFO SocketInputDStream: Initialized and validated org.apache.spark.streaming.dstream.SocketInputDStream@55503e72
+21/11/06 12:29:06 INFO ForEachDStream: Slide time = 10000 ms
+21/11/06 12:29:06 INFO ForEachDStream: Storage level = Serialized 1x Replicated
+21/11/06 12:29:06 INFO ForEachDStream: Checkpoint interval = null
+21/11/06 12:29:06 INFO ForEachDStream: Remember interval = 10000 ms
+21/11/06 12:29:06 INFO ForEachDStream: Initialized and validated org.apache.spark.streaming.dstream.ForEachDStream@7208921d
+21/11/06 12:29:06 INFO ReceiverTracker: Receiver 0 started
+21/11/06 12:29:06 INFO DAGScheduler: Got job 0 (start at NativeMethodAccessorImpl.java:0) with 1 output partitions
+21/11/06 12:29:06 INFO RecurringTimer: Started timer for JobGenerator at time 1636181950000
+21/11/06 12:29:06 INFO JobGenerator: Started JobGenerator at 1636181950000 ms
+21/11/06 12:29:06 INFO JobScheduler: Started JobScheduler
+21/11/06 12:29:06 INFO DAGScheduler: Final stage: ResultStage 0 (start at NativeMethodAccessorImpl.java:0)
+21/11/06 12:29:06 INFO DAGScheduler: Parents of final stage: List()
+21/11/06 12:29:06 INFO DAGScheduler: Missing parents: List()
+21/11/06 12:29:06 INFO StreamingContext: StreamingContext started
+21/11/06 12:29:06 INFO DAGScheduler: Submitting ResultStage 0 (Receiver 0 ParallelCollectionRDD[0] at makeRDD at ReceiverTracker.scala:609), which has no missing parents
+21/11/06 12:29:06 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 81.3 KiB, free 366.2 MiB)
+21/11/06 12:29:06 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 28.5 KiB, free 366.2 MiB)
+21/11/06 12:29:06 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on pes1ug19cs027:32939 (size: 28.5 KiB, free: 366.3 MiB)
+21/11/06 12:29:06 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1388
+21/11/06 12:29:06 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (Receiver 0 ParallelCollectionRDD[0] at makeRDD at ReceiverTracker.scala:609) (first 15 tasks are for partitions Vector(0))
+21/11/06 12:29:06 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+21/11/06 12:29:06 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 5478 bytes) taskResourceAssignments Map()
+21/11/06 12:29:06 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+21/11/06 12:29:07 INFO RecurringTimer: Started timer for BlockGenerator at time 1636181947400
+21/11/06 12:29:07 INFO BlockGenerator: Started BlockGenerator
+21/11/06 12:29:07 INFO ReceiverTracker: Registered receiver for stream 0 from pes1ug19cs027:45409
+21/11/06 12:29:07 INFO ReceiverSupervisorImpl: Starting receiver 0
+21/11/06 12:29:07 INFO SocketReceiver: Connecting to localhost:6100
+21/11/06 12:29:07 INFO SocketReceiver: Connected to localhost:6100
+21/11/06 12:29:07 INFO ReceiverSupervisorImpl: Called receiver 0 onStart
+21/11/06 12:29:07 INFO ReceiverSupervisorImpl: Waiting for receiver to be stopped
+21/11/06 12:29:07 INFO BlockGenerator: Started block pushing thread
+21/11/06 12:29:10 INFO JobScheduler: Added jobs for time 1636181950000 ms
+21/11/06 12:29:10 INFO JobScheduler: Starting job streaming job 1636181950000 ms.0 from job set of time 1636181950000 ms
+21/11/06 12:29:10 INFO JobScheduler: Finished job streaming job 1636181950000 ms.0 from job set of time 1636181950000 ms
+21/11/06 12:29:10 INFO JobScheduler: Starting job streaming job 1636181950000 ms.1 from job set of time 1636181950000 ms
+21/11/06 12:29:10 INFO JobScheduler: Finished job streaming job 1636181950000 ms.1 from job set of time 1636181950000 ms
+21/11/06 12:29:10 INFO JobScheduler: Total delay: 0.177 s for time 1636181950000 ms (execution: 0.046 s)
+21/11/06 12:29:10 INFO ReceivedBlockTracker: Deleting batches: 
+21/11/06 12:29:10 INFO InputInfoTracker: remove old batch metadata: 
+21/11/06 12:29:18 INFO StreamingContext: Invoking stop(stopGracefully=false) from shutdown hook
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Received stop signal
+21/11/06 12:29:18 INFO ReceiverTracker: Sent stop signal to all 1 receivers
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopping receiver with message: Stopped by driver: 
+21/11/06 12:29:18 INFO SocketReceiver: Closed socket to localhost:6100
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Called receiver onStop
+21/11/06 12:29:18 INFO TaskSchedulerImpl: Cancelling stage 0
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Deregistering receiver 0
+21/11/06 12:29:18 WARN SocketReceiver: Error receiving data
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$2.getNext(SocketInputDStream.scala:121)
+	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$2.getNext(SocketInputDStream.scala:119)
+	at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:73)
+	at org.apache.spark.streaming.dstream.SocketReceiver.receive(SocketInputDStream.scala:91)
+	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$1.run(SocketInputDStream.scala:72)
+21/11/06 12:29:18 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage cancelled
+21/11/06 12:29:18 ERROR ReceiverTracker: Deregistered receiver for stream 0: Stopped by driver
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopped receiver 0
+21/11/06 12:29:18 INFO BlockGenerator: Stopping BlockGenerator
+21/11/06 12:29:18 WARN ReceiverSupervisorImpl: Restarting receiver with delay 2000 ms: Error receiving data
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$2.getNext(SocketInputDStream.scala:121)
+	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$2.getNext(SocketInputDStream.scala:119)
+	at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:73)
+	at org.apache.spark.streaming.dstream.SocketReceiver.receive(SocketInputDStream.scala:91)
+	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$1.run(SocketInputDStream.scala:72)
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopping receiver with message: Restarting receiver with delay 2000ms: Error receiving data: java.net.SocketException: Socket closed
+21/11/06 12:29:18 WARN ReceiverSupervisorImpl: Receiver has been stopped
+21/11/06 12:29:18 INFO Executor: Executor is trying to kill task 0.0 in stage 0.0 (TID 0), reason: Stage cancelled
+21/11/06 12:29:18 INFO TaskSchedulerImpl: Stage 0 was cancelled
+21/11/06 12:29:18 INFO DAGScheduler: ResultStage 0 (start at NativeMethodAccessorImpl.java:0) failed in 12.124 s due to Job 0 cancelled as part of cancellation of all jobs
+21/11/06 12:29:18 INFO RecurringTimer: Stopped timer for BlockGenerator after time 1636181958800
+21/11/06 12:29:18 INFO BlockGenerator: Waiting for block pushing thread to terminate
+21/11/06 12:29:18 INFO BlockGenerator: Pushing out the last 0 blocks
+21/11/06 12:29:18 INFO BlockGenerator: Stopped block pushing thread
+21/11/06 12:29:18 INFO BlockGenerator: Stopped BlockGenerator
+Exception in thread "receiver-supervisor-future-0" java.lang.Error: java.lang.InterruptedException: sleep interrupted
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1155)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.spark.streaming.receiver.ReceiverSupervisor.$anonfun$restartReceiver$1(ReceiverSupervisor.scala:196)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	... 2 more
+21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopped receiver without error
+21/11/06 12:29:19 INFO ReceiverTracker: All of the receivers have deregistered successfully
+21/11/06 12:29:19 INFO ReceiverTracker: ReceiverTracker stopped
+21/11/06 12:29:19 INFO JobGenerator: Stopping JobGenerator immediately
+21/11/06 12:29:19 INFO RecurringTimer: Stopped timer for JobGenerator after time 1636181950000
+21/11/06 12:29:20 INFO JobGenerator: Stopped JobGenerator
+21/11/06 12:29:21 INFO JobScheduler: Stopped JobScheduler
+21/11/06 12:29:47 INFO Executor: Executor killed task 0.0 in stage 0.0 (TID 0), reason: Stage cancelled
+21/11/06 12:29:48 WARN ShutdownHookManager: ShutdownHook '$anon$2' timeout, java.util.concurrent.TimeoutException
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.apache.hadoop.util.ShutdownHookManager.executeShutdown(ShutdownHookManager.java:124)
+	at org.apache.hadoop.util.ShutdownHookManager$1.run(ShutdownHookManager.java:95)
+21/11/06 12:29:50 ERROR Utils: Uncaught exception in thread shutdown-hook-0
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(AbstractQueuedSynchronizer.java:1220)
+	at java.util.concurrent.locks.ReentrantLock.lockInterruptibly(ReentrantLock.java:335)
+	at java.util.concurrent.LinkedBlockingQueue.put(LinkedBlockingQueue.java:339)
+	at org.apache.spark.scheduler.AsyncEventQueue.stop(AsyncEventQueue.scala:143)
+	at org.apache.spark.scheduler.LiveListenerBus.$anonfun$removeListener$2(LiveListenerBus.scala:123)
+	at org.apache.spark.scheduler.LiveListenerBus.$anonfun$removeListener$2$adapted(LiveListenerBus.scala:121)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.LiveListenerBus.removeListener(LiveListenerBus.scala:121)
+	at org.apache.spark.SparkContext.removeSparkListener(SparkContext.scala:1670)
+	at org.apache.spark.streaming.StreamingContext.unregisterProgressListener(StreamingContext.scala:735)
+	at org.apache.spark.streaming.StreamingContext.$anonfun$stop$7(StreamingContext.scala:698)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1419)
+	at org.apache.spark.streaming.StreamingContext.stop(StreamingContext.scala:698)
+	at org.apache.spark.streaming.StreamingContext.stopOnShutdown(StreamingContext.scala:724)
+	at org.apache.spark.streaming.StreamingContext.$anonfun$start$4(StreamingContext.scala:606)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1996)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
