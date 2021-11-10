@@ -106,10 +106,10 @@ def sendPokemonBatchFileToSpark(tcp_connection, input_batch_file):
             payload[mini_batch_index]["img"] = image_data_batch[mini_batch_index]
             # if you want to flatten out the matrix, use payload[mini_batch_index]["img"] = np.asarray(image_data_batch[mini_batch_index]).flatten().tolist()
             payload[mini_batch_index]['label'] = image_label[mini_batch_index]
+        print(payload)
         # print(payload)    # uncomment to see the payload being sent
         # encode the payload and add a newline character (do not forget the newline in your dataset)
         send_batch = (json.dumps(payload) + '\n').encode()
-        print(send_batch)
         try:
             tcp_connection.send(send_batch)  # send the payload to Spark
         except BrokenPipeError:

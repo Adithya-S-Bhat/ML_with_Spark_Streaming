@@ -1,103 +1,595 @@
-21/11/06 12:29:03 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+21/11/10 14:19:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
-21/11/06 12:29:03 INFO SparkContext: Running Spark version 3.1.2
-21/11/06 12:29:03 INFO ResourceUtils: ==============================================================
-21/11/06 12:29:03 INFO ResourceUtils: No custom resources configured for spark.driver.
-21/11/06 12:29:03 INFO ResourceUtils: ==============================================================
-21/11/06 12:29:03 INFO SparkContext: Submitted application: client.py
-21/11/06 12:29:03 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
-21/11/06 12:29:03 INFO ResourceProfile: Limiting resource is cpu
-21/11/06 12:29:03 INFO ResourceProfileManager: Added ResourceProfile id: 0
-21/11/06 12:29:03 INFO SecurityManager: Changing view acls to: pes1ug19cs027
-21/11/06 12:29:03 INFO SecurityManager: Changing modify acls to: pes1ug19cs027
-21/11/06 12:29:03 INFO SecurityManager: Changing view acls groups to: 
-21/11/06 12:29:03 INFO SecurityManager: Changing modify acls groups to: 
-21/11/06 12:29:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(pes1ug19cs027); groups with view permissions: Set(); users  with modify permissions: Set(pes1ug19cs027); groups with modify permissions: Set()
-21/11/06 12:29:04 INFO Utils: Successfully started service 'sparkDriver' on port 45409.
-21/11/06 12:29:04 INFO SparkEnv: Registering MapOutputTracker
-21/11/06 12:29:04 INFO SparkEnv: Registering BlockManagerMaster
-21/11/06 12:29:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-21/11/06 12:29:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-21/11/06 12:29:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
-21/11/06 12:29:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-21692ab4-5c73-473d-b32b-2f42fa1fc094
-21/11/06 12:29:04 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
-21/11/06 12:29:04 INFO SparkEnv: Registering OutputCommitCoordinator
-21/11/06 12:29:04 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-21/11/06 12:29:04 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://pes1ug19cs027:4040
-21/11/06 12:29:05 INFO Executor: Starting executor ID driver on host pes1ug19cs027
-21/11/06 12:29:05 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 32939.
-21/11/06 12:29:05 INFO NettyBlockTransferService: Server created on pes1ug19cs027:32939
-21/11/06 12:29:05 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-21/11/06 12:29:05 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, pes1ug19cs027, 32939, None)
-21/11/06 12:29:05 INFO BlockManagerMasterEndpoint: Registering block manager pes1ug19cs027:32939 with 366.3 MiB RAM, BlockManagerId(driver, pes1ug19cs027, 32939, None)
-21/11/06 12:29:05 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, pes1ug19cs027, 32939, None)
-21/11/06 12:29:05 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, pes1ug19cs027, 32939, None)
-21/11/06 12:29:06 INFO ReceiverTracker: Starting 1 receivers
-21/11/06 12:29:06 INFO ReceiverTracker: ReceiverTracker started
-21/11/06 12:29:06 INFO SocketInputDStream: Slide time = 10000 ms
-21/11/06 12:29:06 INFO SocketInputDStream: Storage level = Serialized 1x Replicated
-21/11/06 12:29:06 INFO SocketInputDStream: Checkpoint interval = null
-21/11/06 12:29:06 INFO SocketInputDStream: Remember interval = 10000 ms
-21/11/06 12:29:06 INFO SocketInputDStream: Initialized and validated org.apache.spark.streaming.dstream.SocketInputDStream@55503e72
-21/11/06 12:29:06 INFO ForEachDStream: Slide time = 10000 ms
-21/11/06 12:29:06 INFO ForEachDStream: Storage level = Serialized 1x Replicated
-21/11/06 12:29:06 INFO ForEachDStream: Checkpoint interval = null
-21/11/06 12:29:06 INFO ForEachDStream: Remember interval = 10000 ms
-21/11/06 12:29:06 INFO ForEachDStream: Initialized and validated org.apache.spark.streaming.dstream.ForEachDStream@2c66b64f
-21/11/06 12:29:06 INFO SocketInputDStream: Slide time = 10000 ms
-21/11/06 12:29:06 INFO SocketInputDStream: Storage level = Serialized 1x Replicated
-21/11/06 12:29:06 INFO SocketInputDStream: Checkpoint interval = null
-21/11/06 12:29:06 INFO SocketInputDStream: Remember interval = 10000 ms
-21/11/06 12:29:06 INFO SocketInputDStream: Initialized and validated org.apache.spark.streaming.dstream.SocketInputDStream@55503e72
-21/11/06 12:29:06 INFO ForEachDStream: Slide time = 10000 ms
-21/11/06 12:29:06 INFO ForEachDStream: Storage level = Serialized 1x Replicated
-21/11/06 12:29:06 INFO ForEachDStream: Checkpoint interval = null
-21/11/06 12:29:06 INFO ForEachDStream: Remember interval = 10000 ms
-21/11/06 12:29:06 INFO ForEachDStream: Initialized and validated org.apache.spark.streaming.dstream.ForEachDStream@7208921d
-21/11/06 12:29:06 INFO ReceiverTracker: Receiver 0 started
-21/11/06 12:29:06 INFO DAGScheduler: Got job 0 (start at NativeMethodAccessorImpl.java:0) with 1 output partitions
-21/11/06 12:29:06 INFO RecurringTimer: Started timer for JobGenerator at time 1636181950000
-21/11/06 12:29:06 INFO JobGenerator: Started JobGenerator at 1636181950000 ms
-21/11/06 12:29:06 INFO JobScheduler: Started JobScheduler
-21/11/06 12:29:06 INFO DAGScheduler: Final stage: ResultStage 0 (start at NativeMethodAccessorImpl.java:0)
-21/11/06 12:29:06 INFO DAGScheduler: Parents of final stage: List()
-21/11/06 12:29:06 INFO DAGScheduler: Missing parents: List()
-21/11/06 12:29:06 INFO StreamingContext: StreamingContext started
-21/11/06 12:29:06 INFO DAGScheduler: Submitting ResultStage 0 (Receiver 0 ParallelCollectionRDD[0] at makeRDD at ReceiverTracker.scala:609), which has no missing parents
-21/11/06 12:29:06 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 81.3 KiB, free 366.2 MiB)
-21/11/06 12:29:06 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 28.5 KiB, free 366.2 MiB)
-21/11/06 12:29:06 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on pes1ug19cs027:32939 (size: 28.5 KiB, free: 366.3 MiB)
-21/11/06 12:29:06 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1388
-21/11/06 12:29:06 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (Receiver 0 ParallelCollectionRDD[0] at makeRDD at ReceiverTracker.scala:609) (first 15 tasks are for partitions Vector(0))
-21/11/06 12:29:06 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
-21/11/06 12:29:06 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 5478 bytes) taskResourceAssignments Map()
-21/11/06 12:29:06 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-21/11/06 12:29:07 INFO RecurringTimer: Started timer for BlockGenerator at time 1636181947400
-21/11/06 12:29:07 INFO BlockGenerator: Started BlockGenerator
-21/11/06 12:29:07 INFO ReceiverTracker: Registered receiver for stream 0 from pes1ug19cs027:45409
-21/11/06 12:29:07 INFO ReceiverSupervisorImpl: Starting receiver 0
-21/11/06 12:29:07 INFO SocketReceiver: Connecting to localhost:6100
-21/11/06 12:29:07 INFO SocketReceiver: Connected to localhost:6100
-21/11/06 12:29:07 INFO ReceiverSupervisorImpl: Called receiver 0 onStart
-21/11/06 12:29:07 INFO ReceiverSupervisorImpl: Waiting for receiver to be stopped
-21/11/06 12:29:07 INFO BlockGenerator: Started block pushing thread
-21/11/06 12:29:10 INFO JobScheduler: Added jobs for time 1636181950000 ms
-21/11/06 12:29:10 INFO JobScheduler: Starting job streaming job 1636181950000 ms.0 from job set of time 1636181950000 ms
-21/11/06 12:29:10 INFO JobScheduler: Finished job streaming job 1636181950000 ms.0 from job set of time 1636181950000 ms
-21/11/06 12:29:10 INFO JobScheduler: Starting job streaming job 1636181950000 ms.1 from job set of time 1636181950000 ms
-21/11/06 12:29:10 INFO JobScheduler: Finished job streaming job 1636181950000 ms.1 from job set of time 1636181950000 ms
-21/11/06 12:29:10 INFO JobScheduler: Total delay: 0.177 s for time 1636181950000 ms (execution: 0.046 s)
-21/11/06 12:29:10 INFO ReceivedBlockTracker: Deleting batches: 
-21/11/06 12:29:10 INFO InputInfoTracker: remove old batch metadata: 
-21/11/06 12:29:18 INFO StreamingContext: Invoking stop(stopGracefully=false) from shutdown hook
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Received stop signal
-21/11/06 12:29:18 INFO ReceiverTracker: Sent stop signal to all 1 receivers
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopping receiver with message: Stopped by driver: 
-21/11/06 12:29:18 INFO SocketReceiver: Closed socket to localhost:6100
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Called receiver onStop
-21/11/06 12:29:18 INFO TaskSchedulerImpl: Cancelling stage 0
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Deregistering receiver 0
-21/11/06 12:29:18 WARN SocketReceiver: Error receiving data
+21/11/10 14:19:28 INFO SparkContext: Running Spark version 3.1.2
+21/11/10 14:19:28 INFO ResourceUtils: ==============================================================
+21/11/10 14:19:28 INFO ResourceUtils: No custom resources configured for spark.driver.
+21/11/10 14:19:28 INFO ResourceUtils: ==============================================================
+21/11/10 14:19:28 INFO SparkContext: Submitted application: main.py
+21/11/10 14:19:28 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+21/11/10 14:19:28 INFO ResourceProfile: Limiting resource is cpu
+21/11/10 14:19:28 INFO ResourceProfileManager: Added ResourceProfile id: 0
+21/11/10 14:19:28 INFO SecurityManager: Changing view acls to: pes1ug19cs027
+21/11/10 14:19:28 INFO SecurityManager: Changing modify acls to: pes1ug19cs027
+21/11/10 14:19:28 INFO SecurityManager: Changing view acls groups to: 
+21/11/10 14:19:28 INFO SecurityManager: Changing modify acls groups to: 
+21/11/10 14:19:28 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(pes1ug19cs027); groups with view permissions: Set(); users  with modify permissions: Set(pes1ug19cs027); groups with modify permissions: Set()
+21/11/10 14:19:29 INFO Utils: Successfully started service 'sparkDriver' on port 39589.
+21/11/10 14:19:29 INFO SparkEnv: Registering MapOutputTracker
+21/11/10 14:19:29 INFO SparkEnv: Registering BlockManagerMaster
+21/11/10 14:19:29 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+21/11/10 14:19:29 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+21/11/10 14:19:29 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+21/11/10 14:19:29 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-0fabc5ad-8f65-4eb3-b6aa-f90916653d81
+21/11/10 14:19:29 INFO MemoryStore: MemoryStore started with capacity 366.3 MiB
+21/11/10 14:19:29 INFO SparkEnv: Registering OutputCommitCoordinator
+21/11/10 14:19:29 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+21/11/10 14:19:29 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://pes1ug19cs027:4040
+21/11/10 14:19:29 INFO Executor: Starting executor ID driver on host pes1ug19cs027
+21/11/10 14:19:30 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40397.
+21/11/10 14:19:30 INFO NettyBlockTransferService: Server created on pes1ug19cs027:40397
+21/11/10 14:19:30 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+21/11/10 14:19:30 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, pes1ug19cs027, 40397, None)
+21/11/10 14:19:30 INFO BlockManagerMasterEndpoint: Registering block manager pes1ug19cs027:40397 with 366.3 MiB RAM, BlockManagerId(driver, pes1ug19cs027, 40397, None)
+21/11/10 14:19:30 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, pes1ug19cs027, 40397, None)
+21/11/10 14:19:30 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, pes1ug19cs027, 40397, None)
+21/11/10 14:19:31 INFO ReceiverTracker: Starting 1 receivers
+21/11/10 14:19:31 INFO ReceiverTracker: ReceiverTracker started
+21/11/10 14:19:31 INFO SocketInputDStream: Slide time = 2000 ms
+21/11/10 14:19:31 INFO SocketInputDStream: Storage level = Serialized 1x Replicated
+21/11/10 14:19:31 INFO SocketInputDStream: Checkpoint interval = null
+21/11/10 14:19:31 INFO SocketInputDStream: Remember interval = 2000 ms
+21/11/10 14:19:31 INFO SocketInputDStream: Initialized and validated org.apache.spark.streaming.dstream.SocketInputDStream@77de210b
+21/11/10 14:19:31 INFO ForEachDStream: Slide time = 2000 ms
+21/11/10 14:19:31 INFO ForEachDStream: Storage level = Serialized 1x Replicated
+21/11/10 14:19:31 INFO ForEachDStream: Checkpoint interval = null
+21/11/10 14:19:31 INFO ForEachDStream: Remember interval = 2000 ms
+21/11/10 14:19:31 INFO ForEachDStream: Initialized and validated org.apache.spark.streaming.dstream.ForEachDStream@423db720
+21/11/10 14:19:31 INFO RecurringTimer: Started timer for JobGenerator at time 1636534172000
+21/11/10 14:19:31 INFO JobGenerator: Started JobGenerator at 1636534172000 ms
+21/11/10 14:19:31 INFO JobScheduler: Started JobScheduler
+21/11/10 14:19:31 INFO StreamingContext: StreamingContext started
+21/11/10 14:19:31 INFO ReceiverTracker: Receiver 0 started
+21/11/10 14:19:31 INFO DAGScheduler: Got job 0 (start at NativeMethodAccessorImpl.java:0) with 1 output partitions
+21/11/10 14:19:31 INFO DAGScheduler: Final stage: ResultStage 0 (start at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:31 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:31 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:31 INFO DAGScheduler: Submitting ResultStage 0 (Receiver 0 ParallelCollectionRDD[0] at makeRDD at ReceiverTracker.scala:609), which has no missing parents
+21/11/10 14:19:31 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 81.3 KiB, free 366.2 MiB)
+21/11/10 14:19:31 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 28.5 KiB, free 366.2 MiB)
+21/11/10 14:19:31 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on pes1ug19cs027:40397 (size: 28.5 KiB, free: 366.3 MiB)
+21/11/10 14:19:31 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:31 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (Receiver 0 ParallelCollectionRDD[0] at makeRDD at ReceiverTracker.scala:609) (first 15 tasks are for partitions Vector(0))
+21/11/10 14:19:31 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+21/11/10 14:19:31 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 5478 bytes) taskResourceAssignments Map()
+21/11/10 14:19:31 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+21/11/10 14:19:31 INFO RecurringTimer: Started timer for BlockGenerator at time 1636534172000
+21/11/10 14:19:31 INFO BlockGenerator: Started BlockGenerator
+21/11/10 14:19:31 INFO ReceiverTracker: Registered receiver for stream 0 from pes1ug19cs027:39589
+21/11/10 14:19:31 INFO ReceiverSupervisorImpl: Starting receiver 0
+21/11/10 14:19:31 INFO SocketReceiver: Connecting to localhost:6100
+21/11/10 14:19:31 INFO SocketReceiver: Connected to localhost:6100
+21/11/10 14:19:31 INFO ReceiverSupervisorImpl: Called receiver 0 onStart
+21/11/10 14:19:31 INFO ReceiverSupervisorImpl: Waiting for receiver to be stopped
+21/11/10 14:19:31 INFO BlockGenerator: Started block pushing thread
+21/11/10 14:19:32 INFO JobScheduler: Starting job streaming job 1636534172000 ms.0 from job set of time 1636534172000 ms
+21/11/10 14:19:32 INFO JobScheduler: Added jobs for time 1636534172000 ms
+21/11/10 14:19:32 INFO JobScheduler: Finished job streaming job 1636534172000 ms.0 from job set of time 1636534172000 ms
+21/11/10 14:19:32 INFO JobScheduler: Total delay: 0.180 s for time 1636534172000 ms (execution: 0.064 s)
+21/11/10 14:19:32 INFO ReceivedBlockTracker: Deleting batches: 
+21/11/10 14:19:32 INFO InputInfoTracker: remove old batch metadata: 
+21/11/10 14:19:32 INFO MemoryStore: Block input-0-1636534172200 stored as values in memory (estimated size 9.5 KiB, free 366.2 MiB)
+21/11/10 14:19:32 INFO BlockManagerInfo: Added input-0-1636534172200 in memory on pes1ug19cs027:40397 (size: 9.5 KiB, free: 366.3 MiB)
+21/11/10 14:19:32 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:32 WARN BlockManager: Block input-0-1636534172200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:32 INFO BlockGenerator: Pushed block input-0-1636534172200
+21/11/10 14:19:33 INFO MemoryStore: Block input-0-1636534173200 stored as values in memory (estimated size 91.2 KiB, free 366.1 MiB)
+21/11/10 14:19:33 INFO BlockManagerInfo: Added input-0-1636534173200 in memory on pes1ug19cs027:40397 (size: 91.2 KiB, free: 366.2 MiB)
+21/11/10 14:19:33 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:33 WARN BlockManager: Block input-0-1636534173200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:33 INFO BlockGenerator: Pushed block input-0-1636534173200
+21/11/10 14:19:34 INFO JobScheduler: Starting job streaming job 1636534174000 ms.0 from job set of time 1636534174000 ms
+21/11/10 14:19:34 INFO JobScheduler: Added jobs for time 1636534174000 ms
+21/11/10 14:19:34 INFO SparkContext: Starting job: runJob at PythonRDD.scala:166
+21/11/10 14:19:34 INFO DAGScheduler: Got job 1 (runJob at PythonRDD.scala:166) with 1 output partitions
+21/11/10 14:19:34 INFO DAGScheduler: Final stage: ResultStage 1 (runJob at PythonRDD.scala:166)
+21/11/10 14:19:34 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:34 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:34 INFO DAGScheduler: Submitting ResultStage 1 (PythonRDD[3] at RDD at PythonRDD.scala:53), which has no missing parents
+21/11/10 14:19:34 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 4.7 KiB, free 366.1 MiB)
+21/11/10 14:19:34 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.1 KiB, free 366.1 MiB)
+21/11/10 14:19:34 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on pes1ug19cs027:40397 (size: 3.1 KiB, free: 366.2 MiB)
+21/11/10 14:19:34 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:34 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (PythonRDD[3] at RDD at PythonRDD.scala:53) (first 15 tasks are for partitions Vector(0))
+21/11/10 14:19:34 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+21/11/10 14:19:34 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:34 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+21/11/10 14:19:34 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:34 INFO MemoryStore: Block input-0-1636534174200 stored as values in memory (estimated size 5.3 KiB, free 366.1 MiB)
+21/11/10 14:19:34 INFO BlockManagerInfo: Added input-0-1636534174200 in memory on pes1ug19cs027:40397 (size: 5.3 KiB, free: 366.2 MiB)
+21/11/10 14:19:34 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:34 WARN BlockManager: Block input-0-1636534174200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:34 INFO BlockGenerator: Pushed block input-0-1636534174200
+21/11/10 14:19:34 INFO PythonRunner: Times: total = 414, boot = 383, init = 31, finish = 0
+21/11/10 14:19:34 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 11127 bytes result sent to driver
+21/11/10 14:19:34 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 482 ms on pes1ug19cs027 (executor driver) (1/1)
+21/11/10 14:19:34 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+21/11/10 14:19:34 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 53525
+21/11/10 14:19:34 INFO DAGScheduler: ResultStage 1 (runJob at PythonRDD.scala:166) finished in 0.521 s
+21/11/10 14:19:34 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:34 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+21/11/10 14:19:34 INFO DAGScheduler: Job 1 finished: runJob at PythonRDD.scala:166, took 0.534871 s
+21/11/10 14:19:34 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/home/pes1ug19cs027/Documents/ML_with_Spark_Streaming/spark-warehouse').
+21/11/10 14:19:34 INFO SharedState: Warehouse path is 'file:/home/pes1ug19cs027/Documents/ML_with_Spark_Streaming/spark-warehouse'.
+21/11/10 14:19:35 INFO MemoryStore: Block input-0-1636534175200 stored as values in memory (estimated size 10.8 KiB, free 366.1 MiB)
+21/11/10 14:19:35 INFO BlockManagerInfo: Added input-0-1636534175200 in memory on pes1ug19cs027:40397 (size: 10.8 KiB, free: 366.2 MiB)
+21/11/10 14:19:35 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:35 WARN BlockManager: Block input-0-1636534175200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:35 INFO BlockGenerator: Pushed block input-0-1636534175200
+21/11/10 14:19:35 INFO BlockManagerInfo: Removed broadcast_1_piece0 on pes1ug19cs027:40397 in memory (size: 3.1 KiB, free: 366.2 MiB)
+21/11/10 14:19:36 INFO JobScheduler: Added jobs for time 1636534176000 ms
+21/11/10 14:19:36 INFO MemoryStore: Block input-0-1636534176200 stored as values in memory (estimated size 11.3 KiB, free 366.1 MiB)
+21/11/10 14:19:36 INFO BlockManagerInfo: Added input-0-1636534176200 in memory on pes1ug19cs027:40397 (size: 11.3 KiB, free: 366.1 MiB)
+21/11/10 14:19:36 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:36 WARN BlockManager: Block input-0-1636534176200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:36 INFO BlockGenerator: Pushed block input-0-1636534176200
+21/11/10 14:19:37 INFO MemoryStore: Block input-0-1636534177200 stored as values in memory (estimated size 10.6 KiB, free 366.1 MiB)
+21/11/10 14:19:37 INFO BlockManagerInfo: Added input-0-1636534177200 in memory on pes1ug19cs027:40397 (size: 10.6 KiB, free: 366.1 MiB)
+21/11/10 14:19:37 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:37 WARN BlockManager: Block input-0-1636534177200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:37 INFO BlockGenerator: Pushed block input-0-1636534177200
+21/11/10 14:19:37 INFO CodeGenerator: Code generated in 218.390408 ms
+21/11/10 14:19:37 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:37 INFO DAGScheduler: Got job 2 (json at NativeMethodAccessorImpl.java:0) with 2 output partitions
+21/11/10 14:19:37 INFO DAGScheduler: Final stage: ResultStage 2 (json at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:37 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:37 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:37 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[10] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:37 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 16.4 KiB, free 366.0 MiB)
+21/11/10 14:19:37 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 8.4 KiB, free 366.0 MiB)
+21/11/10 14:19:37 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on pes1ug19cs027:40397 (size: 8.4 KiB, free: 366.1 MiB)
+21/11/10 14:19:37 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:37 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[10] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+21/11/10 14:19:37 INFO TaskSchedulerImpl: Adding task set 2.0 with 2 tasks resource profile 0
+21/11/10 14:19:37 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:37 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+21/11/10 14:19:38 INFO JobScheduler: Added jobs for time 1636534178000 ms
+21/11/10 14:19:38 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:38 INFO PythonRunner: Times: total = 21, boot = 7, init = 14, finish = 0
+21/11/10 14:19:38 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 2890 bytes result sent to driver
+21/11/10 14:19:38 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 3) (pes1ug19cs027, executor driver, partition 1, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:38 INFO Executor: Running task 1.0 in stage 2.0 (TID 3)
+21/11/10 14:19:38 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 208 ms on pes1ug19cs027 (executor driver) (1/2)
+21/11/10 14:19:38 INFO BlockManager: Found block input-0-1636534173200 locally
+21/11/10 14:19:38 INFO PythonRunner: Times: total = 17, boot = -34, init = 42, finish = 9
+21/11/10 14:19:38 INFO Executor: Finished task 1.0 in stage 2.0 (TID 3). 2847 bytes result sent to driver
+21/11/10 14:19:38 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 3) in 51 ms on pes1ug19cs027 (executor driver) (2/2)
+21/11/10 14:19:38 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+21/11/10 14:19:38 INFO DAGScheduler: ResultStage 2 (json at NativeMethodAccessorImpl.java:0) finished in 0.302 s
+21/11/10 14:19:38 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:38 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+21/11/10 14:19:38 INFO DAGScheduler: Job 2 finished: json at NativeMethodAccessorImpl.java:0, took 0.308264 s
+21/11/10 14:19:38 INFO MemoryStore: Block input-0-1636534178200 stored as values in memory (estimated size 4.9 KiB, free 366.0 MiB)
+21/11/10 14:19:38 INFO BlockManagerInfo: Added input-0-1636534178200 in memory on pes1ug19cs027:40397 (size: 4.9 KiB, free: 366.1 MiB)
+21/11/10 14:19:38 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:38 WARN BlockManager: Block input-0-1636534178200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:38 INFO BlockGenerator: Pushed block input-0-1636534178200
+21/11/10 14:19:39 INFO MemoryStore: Block input-0-1636534179200 stored as values in memory (estimated size 5.9 KiB, free 366.0 MiB)
+21/11/10 14:19:39 INFO BlockManagerInfo: Added input-0-1636534179200 in memory on pes1ug19cs027:40397 (size: 5.9 KiB, free: 366.1 MiB)
+21/11/10 14:19:39 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:39 WARN BlockManager: Block input-0-1636534179200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:39 INFO BlockGenerator: Pushed block input-0-1636534179200
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 19.777999 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 12.667006 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 29.172463 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 10.535804 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 21.781758 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 8.093736 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 28.274504 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 7.558169 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 17.315516 ms
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 7.41433 ms
+21/11/10 14:19:39 INFO BlockManagerInfo: Removed broadcast_2_piece0 on pes1ug19cs027:40397 in memory (size: 8.4 KiB, free: 366.1 MiB)
+21/11/10 14:19:39 INFO CodeGenerator: Code generated in 182.060956 ms
+21/11/10 14:19:39 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:39 INFO DAGScheduler: Got job 3 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+21/11/10 14:19:39 INFO DAGScheduler: Final stage: ResultStage 3 (showString at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:39 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:39 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:39 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[43] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:39 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 73.7 KiB, free 366.0 MiB)
+21/11/10 14:19:39 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 18.4 KiB, free 366.0 MiB)
+21/11/10 14:19:39 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on pes1ug19cs027:40397 (size: 18.4 KiB, free: 366.1 MiB)
+21/11/10 14:19:39 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:39 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[43] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+21/11/10 14:19:39 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+21/11/10 14:19:39 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 4) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:39 INFO Executor: Running task 0.0 in stage 3.0 (TID 4)
+21/11/10 14:19:40 INFO JobScheduler: Added jobs for time 1636534180000 ms
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:40 INFO CodeGenerator: Code generated in 23.918818 ms
+21/11/10 14:19:40 INFO CodeGenerator: Code generated in 24.099173 ms
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 21, boot = -1826, init = 1847, finish = 0
+21/11/10 14:19:40 INFO Executor: Finished task 0.0 in stage 3.0 (TID 4). 3721 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 4) in 239 ms on pes1ug19cs027 (executor driver) (1/1)
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+21/11/10 14:19:40 INFO DAGScheduler: ResultStage 3 (showString at NativeMethodAccessorImpl.java:0) finished in 0.321 s
+21/11/10 14:19:40 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+21/11/10 14:19:40 INFO DAGScheduler: Job 3 finished: showString at NativeMethodAccessorImpl.java:0, took 0.341453 s
+21/11/10 14:19:40 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:40 INFO DAGScheduler: Got job 4 (showString at NativeMethodAccessorImpl.java:0) with 4 output partitions
+21/11/10 14:19:40 INFO DAGScheduler: Final stage: ResultStage 4 (showString at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:40 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:40 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:40 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[43] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 73.7 KiB, free 365.9 MiB)
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 18.4 KiB, free 365.9 MiB)
+21/11/10 14:19:40 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on pes1ug19cs027:40397 (size: 18.4 KiB, free: 366.1 MiB)
+21/11/10 14:19:40 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:40 INFO DAGScheduler: Submitting 4 missing tasks from ResultStage 4 (MapPartitionsRDD[43] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(1, 2, 3, 4))
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Adding task set 4.0 with 4 tasks resource profile 0
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 5) (pes1ug19cs027, executor driver, partition 1, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 0.0 in stage 4.0 (TID 5)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534173200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 17, boot = -172, init = 183, finish = 6
+21/11/10 14:19:40 INFO Executor: Finished task 0.0 in stage 4.0 (TID 5). 3770 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 1.0 in stage 4.0 (TID 6) (pes1ug19cs027, executor driver, partition 2, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 1.0 in stage 4.0 (TID 6)
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 5) in 51 ms on pes1ug19cs027 (executor driver) (1/4)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 56, boot = -30, init = 86, finish = 0
+21/11/10 14:19:40 INFO Executor: Finished task 1.0 in stage 4.0 (TID 6). 3770 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 2.0 in stage 4.0 (TID 7) (pes1ug19cs027, executor driver, partition 3, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 1.0 in stage 4.0 (TID 6) in 88 ms on pes1ug19cs027 (executor driver) (2/4)
+21/11/10 14:19:40 INFO Executor: Running task 2.0 in stage 4.0 (TID 7)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534173200 locally
+21/11/10 14:19:40 INFO MemoryStore: Block input-0-1636534180200 stored as values in memory (estimated size 2.7 KiB, free 365.9 MiB)
+21/11/10 14:19:40 INFO BlockManagerInfo: Added input-0-1636534180200 in memory on pes1ug19cs027:40397 (size: 2.7 KiB, free: 366.1 MiB)
+21/11/10 14:19:40 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:40 WARN BlockManager: Block input-0-1636534180200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:40 INFO BlockGenerator: Pushed block input-0-1636534180200
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 11, boot = -16, init = 26, finish = 1
+21/11/10 14:19:40 INFO Executor: Finished task 2.0 in stage 4.0 (TID 7). 4394 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 3.0 in stage 4.0 (TID 8) (pes1ug19cs027, executor driver, partition 4, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 2.0 in stage 4.0 (TID 7) in 39 ms on pes1ug19cs027 (executor driver) (3/4)
+21/11/10 14:19:40 INFO Executor: Running task 3.0 in stage 4.0 (TID 8)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 12, boot = -36, init = 48, finish = 0
+21/11/10 14:19:40 INFO Executor: Finished task 3.0 in stage 4.0 (TID 8). 5382 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 3.0 in stage 4.0 (TID 8) in 75 ms on pes1ug19cs027 (executor driver) (4/4)
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+21/11/10 14:19:40 INFO DAGScheduler: ResultStage 4 (showString at NativeMethodAccessorImpl.java:0) finished in 0.265 s
+21/11/10 14:19:40 INFO DAGScheduler: Job 4 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Killing all running tasks in stage 4: Stage finished
+21/11/10 14:19:40 INFO DAGScheduler: Job 4 finished: showString at NativeMethodAccessorImpl.java:0, took 0.272856 s
+21/11/10 14:19:40 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:40 INFO DAGScheduler: Got job 5 (showString at NativeMethodAccessorImpl.java:0) with 5 output partitions
+21/11/10 14:19:40 INFO DAGScheduler: Final stage: ResultStage 5 (showString at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:40 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:40 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:40 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[43] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 73.7 KiB, free 365.8 MiB)
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 18.5 KiB, free 365.8 MiB)
+21/11/10 14:19:40 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on pes1ug19cs027:40397 (size: 18.5 KiB, free: 366.1 MiB)
+21/11/10 14:19:40 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:40 INFO DAGScheduler: Submitting 5 missing tasks from ResultStage 5 (MapPartitionsRDD[43] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(5, 6, 7, 8, 9))
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Adding task set 5.0 with 5 tasks resource profile 0
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 9) (pes1ug19cs027, executor driver, partition 5, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 0.0 in stage 5.0 (TID 9)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534173200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 17, boot = -46, init = 59, finish = 4
+21/11/10 14:19:40 INFO Executor: Finished task 0.0 in stage 5.0 (TID 9). 52814 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 1.0 in stage 5.0 (TID 10) (pes1ug19cs027, executor driver, partition 6, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 9) in 52 ms on pes1ug19cs027 (executor driver) (1/5)
+21/11/10 14:19:40 INFO Executor: Running task 1.0 in stage 5.0 (TID 10)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 49, boot = -33, init = 82, finish = 0
+21/11/10 14:19:40 INFO Executor: Finished task 1.0 in stage 5.0 (TID 10). 3336 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 2.0 in stage 5.0 (TID 11) (pes1ug19cs027, executor driver, partition 7, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 2.0 in stage 5.0 (TID 11)
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 1.0 in stage 5.0 (TID 10) in 65 ms on pes1ug19cs027 (executor driver) (2/5)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534173200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 18, boot = -2, init = 18, finish = 2
+21/11/10 14:19:40 INFO Executor: Finished task 2.0 in stage 5.0 (TID 11). 3721 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 3.0 in stage 5.0 (TID 12) (pes1ug19cs027, executor driver, partition 8, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 3.0 in stage 5.0 (TID 12)
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 2.0 in stage 5.0 (TID 11) in 36 ms on pes1ug19cs027 (executor driver) (3/5)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534172200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 8, boot = -15, init = 23, finish = 0
+21/11/10 14:19:40 INFO Executor: Finished task 3.0 in stage 5.0 (TID 12). 4614 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 4.0 in stage 5.0 (TID 13) (pes1ug19cs027, executor driver, partition 9, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 4.0 in stage 5.0 (TID 13)
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 3.0 in stage 5.0 (TID 12) in 31 ms on pes1ug19cs027 (executor driver) (4/5)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534173200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 7, boot = -14, init = 21, finish = 0
+21/11/10 14:19:40 INFO Executor: Finished task 4.0 in stage 5.0 (TID 13). 3554 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 4.0 in stage 5.0 (TID 13) in 33 ms on pes1ug19cs027 (executor driver) (5/5)
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+21/11/10 14:19:40 INFO DAGScheduler: ResultStage 5 (showString at NativeMethodAccessorImpl.java:0) finished in 0.227 s
+21/11/10 14:19:40 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+21/11/10 14:19:40 INFO DAGScheduler: Job 5 finished: showString at NativeMethodAccessorImpl.java:0, took 0.235474 s
+21/11/10 14:19:40 INFO CodeGenerator: Code generated in 19.223958 ms
+21/11/10 14:19:40 INFO JobScheduler: Finished job streaming job 1636534174000 ms.0 from job set of time 1636534174000 ms
+21/11/10 14:19:40 INFO JobScheduler: Total delay: 6.779 s for time 1636534174000 ms (execution: 6.756 s)
+21/11/10 14:19:40 INFO JobScheduler: Starting job streaming job 1636534176000 ms.0 from job set of time 1636534176000 ms
+21/11/10 14:19:40 INFO BlockRDD: Removing RDD 1 from persistence list
+21/11/10 14:19:40 INFO SocketInputDStream: Removing blocks of RDD BlockRDD[1] at socketTextStream at NativeMethodAccessorImpl.java:0 of time 1636534174000 ms
+21/11/10 14:19:40 INFO ReceivedBlockTracker: Deleting batches: 
+21/11/10 14:19:40 INFO InputInfoTracker: remove old batch metadata: 
+21/11/10 14:19:40 INFO BlockManager: Removing RDD 1
+21/11/10 14:19:40 INFO SparkContext: Starting job: runJob at PythonRDD.scala:166
+21/11/10 14:19:40 INFO DAGScheduler: Got job 6 (runJob at PythonRDD.scala:166) with 1 output partitions
+21/11/10 14:19:40 INFO DAGScheduler: Final stage: ResultStage 6 (runJob at PythonRDD.scala:166)
+21/11/10 14:19:40 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:40 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:40 INFO DAGScheduler: Submitting ResultStage 6 (PythonRDD[45] at RDD at PythonRDD.scala:53), which has no missing parents
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 4.7 KiB, free 365.8 MiB)
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 3.1 KiB, free 365.8 MiB)
+21/11/10 14:19:40 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on pes1ug19cs027:40397 (size: 3.1 KiB, free: 366.1 MiB)
+21/11/10 14:19:40 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:40 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 6 (PythonRDD[45] at RDD at PythonRDD.scala:53) (first 15 tasks are for partitions Vector(0))
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks resource profile 0
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 14) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 0.0 in stage 6.0 (TID 14)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:40 INFO PythonRunner: Times: total = 49, boot = -136, init = 184, finish = 1
+21/11/10 14:19:40 INFO Executor: Finished task 0.0 in stage 6.0 (TID 14). 6740 bytes result sent to driver
+21/11/10 14:19:40 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 14) in 56 ms on pes1ug19cs027 (executor driver) (1/1)
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+21/11/10 14:19:40 INFO DAGScheduler: ResultStage 6 (runJob at PythonRDD.scala:166) finished in 0.071 s
+21/11/10 14:19:40 INFO DAGScheduler: Job 6 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Killing all running tasks in stage 6: Stage finished
+21/11/10 14:19:40 INFO DAGScheduler: Job 6 finished: runJob at PythonRDD.scala:166, took 0.078373 s
+21/11/10 14:19:40 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:40 INFO DAGScheduler: Got job 7 (json at NativeMethodAccessorImpl.java:0) with 2 output partitions
+21/11/10 14:19:40 INFO DAGScheduler: Final stage: ResultStage 7 (json at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:40 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:40 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:40 INFO DAGScheduler: Submitting ResultStage 7 (MapPartitionsRDD[51] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 16.4 KiB, free 365.8 MiB)
+21/11/10 14:19:40 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 8.4 KiB, free 365.7 MiB)
+21/11/10 14:19:40 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on pes1ug19cs027:40397 (size: 8.4 KiB, free: 366.1 MiB)
+21/11/10 14:19:40 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:40 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 7 (MapPartitionsRDD[51] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+21/11/10 14:19:40 INFO TaskSchedulerImpl: Adding task set 7.0 with 2 tasks resource profile 0
+21/11/10 14:19:40 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 15) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:40 INFO Executor: Running task 0.0 in stage 7.0 (TID 15)
+21/11/10 14:19:40 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:41 INFO PythonRunner: Times: total = 32, boot = 17, init = 15, finish = 0
+21/11/10 14:19:41 INFO Executor: Finished task 0.0 in stage 7.0 (TID 15). 2847 bytes result sent to driver
+21/11/10 14:19:41 INFO TaskSetManager: Starting task 1.0 in stage 7.0 (TID 16) (pes1ug19cs027, executor driver, partition 1, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:41 INFO Executor: Running task 1.0 in stage 7.0 (TID 16)
+21/11/10 14:19:41 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 15) in 49 ms on pes1ug19cs027 (executor driver) (1/2)
+21/11/10 14:19:41 INFO BlockManager: Found block input-0-1636534175200 locally
+21/11/10 14:19:41 INFO PythonRunner: Times: total = 50, boot = 50, init = 0, finish = 0
+21/11/10 14:19:41 INFO Executor: Finished task 1.0 in stage 7.0 (TID 16). 2847 bytes result sent to driver
+21/11/10 14:19:41 INFO TaskSetManager: Finished task 1.0 in stage 7.0 (TID 16) in 61 ms on pes1ug19cs027 (executor driver) (2/2)
+21/11/10 14:19:41 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+21/11/10 14:19:41 INFO DAGScheduler: ResultStage 7 (json at NativeMethodAccessorImpl.java:0) finished in 0.117 s
+21/11/10 14:19:41 INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:41 INFO TaskSchedulerImpl: Killing all running tasks in stage 7: Stage finished
+21/11/10 14:19:41 INFO DAGScheduler: Job 7 finished: json at NativeMethodAccessorImpl.java:0, took 0.122643 s
+21/11/10 14:19:41 INFO MemoryStore: Block input-0-1636534181200 stored as values in memory (estimated size 130.0 KiB, free 365.6 MiB)
+21/11/10 14:19:41 INFO BlockManagerInfo: Added input-0-1636534181200 in memory on pes1ug19cs027:40397 (size: 130.0 KiB, free: 365.9 MiB)
+21/11/10 14:19:41 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:41 WARN BlockManager: Block input-0-1636534181200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:41 INFO BlockGenerator: Pushed block input-0-1636534181200
+21/11/10 14:19:41 INFO CodeGenerator: Code generated in 15.692097 ms
+21/11/10 14:19:41 INFO CodeGenerator: Code generated in 7.776051 ms
+21/11/10 14:19:41 INFO CodeGenerator: Code generated in 6.421964 ms
+21/11/10 14:19:41 INFO CodeGenerator: Code generated in 6.399545 ms
+21/11/10 14:19:41 INFO CodeGenerator: Code generated in 9.468238 ms
+21/11/10 14:19:41 INFO CodeGenerator: Code generated in 5.82832 ms
+21/11/10 14:19:41 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:41 INFO DAGScheduler: Got job 8 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+21/11/10 14:19:41 INFO DAGScheduler: Final stage: ResultStage 8 (showString at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:41 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:41 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:41 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[83] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:41 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 73.7 KiB, free 365.5 MiB)
+21/11/10 14:19:41 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 18.5 KiB, free 365.5 MiB)
+21/11/10 14:19:41 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on pes1ug19cs027:40397 (size: 18.5 KiB, free: 365.9 MiB)
+21/11/10 14:19:41 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:41 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 8 (MapPartitionsRDD[83] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+21/11/10 14:19:41 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks resource profile 0
+21/11/10 14:19:41 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 17) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:41 INFO Executor: Running task 0.0 in stage 8.0 (TID 17)
+21/11/10 14:19:41 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:41 INFO PythonRunner: Times: total = 12, boot = -631, init = 643, finish = 0
+21/11/10 14:19:41 INFO Executor: Finished task 0.0 in stage 8.0 (TID 17). 3554 bytes result sent to driver
+21/11/10 14:19:41 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 17) in 30 ms on pes1ug19cs027 (executor driver) (1/1)
+21/11/10 14:19:41 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+21/11/10 14:19:41 INFO DAGScheduler: ResultStage 8 (showString at NativeMethodAccessorImpl.java:0) finished in 0.081 s
+21/11/10 14:19:41 INFO DAGScheduler: Job 8 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:41 INFO TaskSchedulerImpl: Killing all running tasks in stage 8: Stage finished
+21/11/10 14:19:41 INFO DAGScheduler: Job 8 finished: showString at NativeMethodAccessorImpl.java:0, took 0.090293 s
+21/11/10 14:19:41 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:41 INFO DAGScheduler: Got job 9 (showString at NativeMethodAccessorImpl.java:0) with 4 output partitions
+21/11/10 14:19:41 INFO DAGScheduler: Final stage: ResultStage 9 (showString at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:41 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:41 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:41 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[83] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:41 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 73.7 KiB, free 365.5 MiB)
+21/11/10 14:19:41 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 18.5 KiB, free 365.4 MiB)
+21/11/10 14:19:41 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on pes1ug19cs027:40397 (size: 18.5 KiB, free: 365.9 MiB)
+21/11/10 14:19:41 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:41 INFO DAGScheduler: Submitting 4 missing tasks from ResultStage 9 (MapPartitionsRDD[83] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(1, 2, 3, 4))
+21/11/10 14:19:41 INFO TaskSchedulerImpl: Adding task set 9.0 with 4 tasks resource profile 0
+21/11/10 14:19:41 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 18) (pes1ug19cs027, executor driver, partition 1, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:41 INFO Executor: Running task 0.0 in stage 9.0 (TID 18)
+21/11/10 14:19:41 INFO BlockManager: Found block input-0-1636534175200 locally
+21/11/10 14:19:42 INFO JobScheduler: Added jobs for time 1636534182000 ms
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 72, boot = -198, init = 270, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 0.0 in stage 9.0 (TID 18). 8659 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 1.0 in stage 9.0 (TID 19) (pes1ug19cs027, executor driver, partition 2, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 18) in 198 ms on pes1ug19cs027 (executor driver) (1/4)
+21/11/10 14:19:42 INFO Executor: Running task 1.0 in stage 9.0 (TID 19)
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed broadcast_5_piece0 on pes1ug19cs027:40397 in memory (size: 18.5 KiB, free: 365.9 MiB)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 8, boot = -79, init = 87, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 1.0 in stage 9.0 (TID 19). 3359 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 2.0 in stage 9.0 (TID 20) (pes1ug19cs027, executor driver, partition 3, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 1.0 in stage 9.0 (TID 19) in 102 ms on pes1ug19cs027 (executor driver) (2/4)
+21/11/10 14:19:42 INFO Executor: Running task 2.0 in stage 9.0 (TID 20)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534175200 locally
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed broadcast_4_piece0 on pes1ug19cs027:40397 in memory (size: 18.4 KiB, free: 365.9 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed broadcast_6_piece0 on pes1ug19cs027:40397 in memory (size: 3.1 KiB, free: 365.9 MiB)
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 12, boot = -22, init = 34, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 2.0 in stage 9.0 (TID 20). 3151 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 3.0 in stage 9.0 (TID 21) (pes1ug19cs027, executor driver, partition 4, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 2.0 in stage 9.0 (TID 20) in 43 ms on pes1ug19cs027 (executor driver) (3/4)
+21/11/10 14:19:42 INFO Executor: Running task 3.0 in stage 9.0 (TID 21)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed broadcast_7_piece0 on pes1ug19cs027:40397 in memory (size: 8.4 KiB, free: 365.9 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed broadcast_8_piece0 on pes1ug19cs027:40397 in memory (size: 18.5 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 48, boot = -23, init = 71, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 3.0 in stage 9.0 (TID 21). 3770 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 3.0 in stage 9.0 (TID 21) in 71 ms on pes1ug19cs027 (executor driver) (4/4)
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+21/11/10 14:19:42 INFO DAGScheduler: ResultStage 9 (showString at NativeMethodAccessorImpl.java:0) finished in 0.471 s
+21/11/10 14:19:42 INFO DAGScheduler: Job 9 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 9: Stage finished
+21/11/10 14:19:42 INFO DAGScheduler: Job 9 finished: showString at NativeMethodAccessorImpl.java:0, took 0.476556 s
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed broadcast_3_piece0 on pes1ug19cs027:40397 in memory (size: 18.4 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:42 INFO DAGScheduler: Got job 10 (showString at NativeMethodAccessorImpl.java:0) with 5 output partitions
+21/11/10 14:19:42 INFO DAGScheduler: Final stage: ResultStage 10 (showString at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:42 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:42 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:42 INFO DAGScheduler: Submitting ResultStage 10 (MapPartitionsRDD[83] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:42 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 73.7 KiB, free 365.8 MiB)
+21/11/10 14:19:42 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 18.5 KiB, free 365.7 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on pes1ug19cs027:40397 (size: 18.5 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:42 INFO DAGScheduler: Submitting 5 missing tasks from ResultStage 10 (MapPartitionsRDD[83] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(5, 6, 7, 8, 9))
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Adding task set 10.0 with 5 tasks resource profile 0
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 22) (pes1ug19cs027, executor driver, partition 5, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO Executor: Running task 0.0 in stage 10.0 (TID 22)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534175200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 17, boot = -53, init = 70, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 0.0 in stage 10.0 (TID 22). 3721 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 1.0 in stage 10.0 (TID 23) (pes1ug19cs027, executor driver, partition 6, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO Executor: Running task 1.0 in stage 10.0 (TID 23)
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 22) in 49 ms on pes1ug19cs027 (executor driver) (1/5)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 15, boot = -24, init = 39, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 1.0 in stage 10.0 (TID 23). 4445 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 2.0 in stage 10.0 (TID 24) (pes1ug19cs027, executor driver, partition 7, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 1.0 in stage 10.0 (TID 23) in 32 ms on pes1ug19cs027 (executor driver) (2/5)
+21/11/10 14:19:42 INFO Executor: Running task 2.0 in stage 10.0 (TID 24)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534175200 locally
+21/11/10 14:19:42 INFO MemoryStore: Block input-0-1636534182200 stored as values in memory (estimated size 9.9 KiB, free 365.7 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Added input-0-1636534182200 in memory on pes1ug19cs027:40397 (size: 9.9 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 WARN RandomBlockReplicationPolicy: Expecting 1 replicas with only 0 peer/s.
+21/11/10 14:19:42 WARN BlockManager: Block input-0-1636534182200 replicated to only 0 peer(s) instead of 1 peers
+21/11/10 14:19:42 INFO BlockGenerator: Pushed block input-0-1636534182200
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 52, boot = -7, init = 59, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 2.0 in stage 10.0 (TID 24). 3721 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 3.0 in stage 10.0 (TID 25) (pes1ug19cs027, executor driver, partition 8, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 2.0 in stage 10.0 (TID 24) in 68 ms on pes1ug19cs027 (executor driver) (3/5)
+21/11/10 14:19:42 INFO Executor: Running task 3.0 in stage 10.0 (TID 25)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534174200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 12, boot = -9, init = 21, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 3.0 in stage 10.0 (TID 25). 3468 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 4.0 in stage 10.0 (TID 26) (pes1ug19cs027, executor driver, partition 9, PROCESS_LOCAL, 4503 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 3.0 in stage 10.0 (TID 25) in 30 ms on pes1ug19cs027 (executor driver) (4/5)
+21/11/10 14:19:42 INFO Executor: Running task 4.0 in stage 10.0 (TID 26)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534175200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 17, boot = -11, init = 28, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 4.0 in stage 10.0 (TID 26). 3554 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 4.0 in stage 10.0 (TID 26) in 31 ms on pes1ug19cs027 (executor driver) (5/5)
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+21/11/10 14:19:42 INFO DAGScheduler: ResultStage 10 (showString at NativeMethodAccessorImpl.java:0) finished in 0.220 s
+21/11/10 14:19:42 INFO DAGScheduler: Job 10 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 10: Stage finished
+21/11/10 14:19:42 INFO DAGScheduler: Job 10 finished: showString at NativeMethodAccessorImpl.java:0, took 0.231424 s
+21/11/10 14:19:42 INFO JobScheduler: Finished job streaming job 1636534176000 ms.0 from job set of time 1636534176000 ms
+21/11/10 14:19:42 INFO JobScheduler: Total delay: 6.491 s for time 1636534176000 ms (execution: 1.709 s)
+21/11/10 14:19:42 INFO JobScheduler: Starting job streaming job 1636534178000 ms.0 from job set of time 1636534178000 ms
+21/11/10 14:19:42 INFO BlockRDD: Removing RDD 2 from persistence list
+21/11/10 14:19:42 INFO SocketInputDStream: Removing blocks of RDD BlockRDD[2] at socketTextStream at NativeMethodAccessorImpl.java:0 of time 1636534176000 ms
+21/11/10 14:19:42 INFO BlockManager: Removing RDD 2
+21/11/10 14:19:42 INFO ReceivedBlockTracker: Deleting batches: 1636534172000 ms
+21/11/10 14:19:42 INFO InputInfoTracker: remove old batch metadata: 1636534172000 ms
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed input-0-1636534172200 on pes1ug19cs027:40397 in memory (size: 9.5 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Removed input-0-1636534173200 on pes1ug19cs027:40397 in memory (size: 91.2 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO SparkContext: Starting job: runJob at PythonRDD.scala:166
+21/11/10 14:19:42 INFO DAGScheduler: Got job 11 (runJob at PythonRDD.scala:166) with 1 output partitions
+21/11/10 14:19:42 INFO DAGScheduler: Final stage: ResultStage 11 (runJob at PythonRDD.scala:166)
+21/11/10 14:19:42 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:42 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:42 INFO DAGScheduler: Submitting ResultStage 11 (PythonRDD[85] at RDD at PythonRDD.scala:53), which has no missing parents
+21/11/10 14:19:42 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 4.7 KiB, free 365.8 MiB)
+21/11/10 14:19:42 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 3.1 KiB, free 365.8 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on pes1ug19cs027:40397 (size: 3.1 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:42 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (PythonRDD[85] at RDD at PythonRDD.scala:53) (first 15 tasks are for partitions Vector(0))
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks resource profile 0
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 27) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO Executor: Running task 0.0 in stage 11.0 (TID 27)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534176200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 48, boot = -74, init = 122, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 0.0 in stage 11.0 (TID 27). 12929 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 27) in 52 ms on pes1ug19cs027 (executor driver) (1/1)
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool 
+21/11/10 14:19:42 INFO DAGScheduler: ResultStage 11 (runJob at PythonRDD.scala:166) finished in 0.060 s
+21/11/10 14:19:42 INFO DAGScheduler: Job 11 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 11: Stage finished
+21/11/10 14:19:42 INFO DAGScheduler: Job 11 finished: runJob at PythonRDD.scala:166, took 0.066012 s
+21/11/10 14:19:42 INFO SparkContext: Starting job: json at NativeMethodAccessorImpl.java:0
+21/11/10 14:19:42 INFO DAGScheduler: Got job 12 (json at NativeMethodAccessorImpl.java:0) with 2 output partitions
+21/11/10 14:19:42 INFO DAGScheduler: Final stage: ResultStage 12 (json at NativeMethodAccessorImpl.java:0)
+21/11/10 14:19:42 INFO DAGScheduler: Parents of final stage: List()
+21/11/10 14:19:42 INFO DAGScheduler: Missing parents: List()
+21/11/10 14:19:42 INFO DAGScheduler: Submitting ResultStage 12 (MapPartitionsRDD[91] at json at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/11/10 14:19:42 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 16.4 KiB, free 365.8 MiB)
+21/11/10 14:19:42 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 8.4 KiB, free 365.8 MiB)
+21/11/10 14:19:42 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on pes1ug19cs027:40397 (size: 8.4 KiB, free: 366.0 MiB)
+21/11/10 14:19:42 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1388
+21/11/10 14:19:42 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 12 (MapPartitionsRDD[91] at json at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Adding task set 12.0 with 2 tasks resource profile 0
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 28) (pes1ug19cs027, executor driver, partition 0, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO Executor: Running task 0.0 in stage 12.0 (TID 28)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534176200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 14, boot = 4, init = 10, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 0.0 in stage 12.0 (TID 28). 2847 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Starting task 1.0 in stage 12.0 (TID 29) (pes1ug19cs027, executor driver, partition 1, PROCESS_LOCAL, 4394 bytes) taskResourceAssignments Map()
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 28) in 24 ms on pes1ug19cs027 (executor driver) (1/2)
+21/11/10 14:19:42 INFO Executor: Running task 1.0 in stage 12.0 (TID 29)
+21/11/10 14:19:42 INFO BlockManager: Found block input-0-1636534177200 locally
+21/11/10 14:19:42 INFO PythonRunner: Times: total = 34, boot = 33, init = 1, finish = 0
+21/11/10 14:19:42 INFO Executor: Finished task 1.0 in stage 12.0 (TID 29). 2847 bytes result sent to driver
+21/11/10 14:19:42 INFO TaskSetManager: Finished task 1.0 in stage 12.0 (TID 29) in 43 ms on pes1ug19cs027 (executor driver) (2/2)
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool 
+21/11/10 14:19:42 INFO DAGScheduler: ResultStage 12 (json at NativeMethodAccessorImpl.java:0) finished in 0.076 s
+21/11/10 14:19:42 INFO DAGScheduler: Job 12 is finished. Cancelling potential speculative or zombie tasks for this job
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 12: Stage finished
+21/11/10 14:19:42 INFO DAGScheduler: Job 12 finished: json at NativeMethodAccessorImpl.java:0, took 0.078667 s
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Cancelling stage 0
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage cancelled
+21/11/10 14:19:42 INFO Executor: Executor is trying to kill task 0.0 in stage 0.0 (TID 0), reason: Stage cancelled
+21/11/10 14:19:42 INFO TaskSchedulerImpl: Stage 0 was cancelled
+21/11/10 14:19:42 INFO DAGScheduler: ResultStage 0 (start at NativeMethodAccessorImpl.java:0) failed in 11.669 s due to Job 0 cancelled as part of cancellation of all jobs
+21/11/10 14:19:43 ERROR ReceiverTracker: Receiver has been stopped. Try to restart it.
+org.apache.spark.SparkException: Job 0 cancelled as part of cancellation of all jobs
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2258)
+	at org.apache.spark.scheduler.DAGScheduler.handleJobCancellation(DAGScheduler.scala:2154)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$doCancelAllJobs$2(DAGScheduler.scala:972)
+	at scala.runtime.java8.JFunction1$mcVI$sp.apply(JFunction1$mcVI$sp.java:23)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+	at org.apache.spark.scheduler.DAGScheduler.doCancelAllJobs(DAGScheduler.scala:971)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2410)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2387)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2376)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+21/11/10 14:19:43 INFO ReceiverTracker: Restarting Receiver 0
+21/11/10 14:19:43 INFO StreamingContext: Invoking stop(stopGracefully=false) from shutdown hook
+21/11/10 14:19:43 INFO ReceiverSupervisorImpl: Received stop signal
+21/11/10 14:19:43 INFO ReceiverTracker: Sent stop signal to all 1 receivers
+21/11/10 14:19:43 INFO ReceiverSupervisorImpl: Stopping receiver with message: Stopped by driver: 
+21/11/10 14:19:43 INFO SocketReceiver: Closed socket to localhost:6100
+21/11/10 14:19:43 WARN SocketReceiver: Error receiving data
 java.net.SocketException: Socket closed
 	at java.net.SocketInputStream.socketRead0(Native Method)
 	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
@@ -115,11 +607,15 @@ java.net.SocketException: Socket closed
 	at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:73)
 	at org.apache.spark.streaming.dstream.SocketReceiver.receive(SocketInputDStream.scala:91)
 	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$1.run(SocketInputDStream.scala:72)
-21/11/06 12:29:18 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage cancelled
-21/11/06 12:29:18 ERROR ReceiverTracker: Deregistered receiver for stream 0: Stopped by driver
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopped receiver 0
-21/11/06 12:29:18 INFO BlockGenerator: Stopping BlockGenerator
-21/11/06 12:29:18 WARN ReceiverSupervisorImpl: Restarting receiver with delay 2000 ms: Error receiving data
+21/11/10 14:19:43 INFO ReceiverSupervisorImpl: Called receiver onStop
+21/11/10 14:19:43 INFO ReceiverSupervisorImpl: Deregistering receiver 0
+21/11/10 14:19:43 INFO ReceiverTracker: All of the receivers have deregistered successfully
+21/11/10 14:19:43 WARN ReceiverTracker: No prior receiver info
+21/11/10 14:19:43 INFO ReceiverTracker: ReceiverTracker stopped
+21/11/10 14:19:43 ERROR ReceiverTracker: Deregistered receiver for stream 0: Stopped by driver
+21/11/10 14:19:43 INFO JobGenerator: Stopping JobGenerator immediately
+21/11/10 14:19:43 INFO ReceiverSupervisorImpl: Stopped receiver 0
+21/11/10 14:19:43 WARN ReceiverSupervisorImpl: Restarting receiver with delay 2000 ms: Error receiving data
 java.net.SocketException: Socket closed
 	at java.net.SocketInputStream.socketRead0(Native Method)
 	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
@@ -137,76 +633,22 @@ java.net.SocketException: Socket closed
 	at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:73)
 	at org.apache.spark.streaming.dstream.SocketReceiver.receive(SocketInputDStream.scala:91)
 	at org.apache.spark.streaming.dstream.SocketReceiver$$anon$1.run(SocketInputDStream.scala:72)
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopping receiver with message: Restarting receiver with delay 2000ms: Error receiving data: java.net.SocketException: Socket closed
-21/11/06 12:29:18 WARN ReceiverSupervisorImpl: Receiver has been stopped
-21/11/06 12:29:18 INFO Executor: Executor is trying to kill task 0.0 in stage 0.0 (TID 0), reason: Stage cancelled
-21/11/06 12:29:18 INFO TaskSchedulerImpl: Stage 0 was cancelled
-21/11/06 12:29:18 INFO DAGScheduler: ResultStage 0 (start at NativeMethodAccessorImpl.java:0) failed in 12.124 s due to Job 0 cancelled as part of cancellation of all jobs
-21/11/06 12:29:18 INFO RecurringTimer: Stopped timer for BlockGenerator after time 1636181958800
-21/11/06 12:29:18 INFO BlockGenerator: Waiting for block pushing thread to terminate
-21/11/06 12:29:18 INFO BlockGenerator: Pushing out the last 0 blocks
-21/11/06 12:29:18 INFO BlockGenerator: Stopped block pushing thread
-21/11/06 12:29:18 INFO BlockGenerator: Stopped BlockGenerator
-Exception in thread "receiver-supervisor-future-0" java.lang.Error: java.lang.InterruptedException: sleep interrupted
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1155)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.InterruptedException: sleep interrupted
-	at java.lang.Thread.sleep(Native Method)
-	at org.apache.spark.streaming.receiver.ReceiverSupervisor.$anonfun$restartReceiver$1(ReceiverSupervisor.scala:196)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
-	at scala.util.Success.$anonfun$map$1(Try.scala:255)
-	at scala.util.Success.map(Try.scala:213)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	... 2 more
-21/11/06 12:29:18 INFO ReceiverSupervisorImpl: Stopped receiver without error
-21/11/06 12:29:19 INFO ReceiverTracker: All of the receivers have deregistered successfully
-21/11/06 12:29:19 INFO ReceiverTracker: ReceiverTracker stopped
-21/11/06 12:29:19 INFO JobGenerator: Stopping JobGenerator immediately
-21/11/06 12:29:19 INFO RecurringTimer: Stopped timer for JobGenerator after time 1636181950000
-21/11/06 12:29:20 INFO JobGenerator: Stopped JobGenerator
-21/11/06 12:29:21 INFO JobScheduler: Stopped JobScheduler
-21/11/06 12:29:47 INFO Executor: Executor killed task 0.0 in stage 0.0 (TID 0), reason: Stage cancelled
-21/11/06 12:29:48 WARN ShutdownHookManager: ShutdownHook '$anon$2' timeout, java.util.concurrent.TimeoutException
-java.util.concurrent.TimeoutException
-	at java.util.concurrent.FutureTask.get(FutureTask.java:205)
-	at org.apache.hadoop.util.ShutdownHookManager.executeShutdown(ShutdownHookManager.java:124)
-	at org.apache.hadoop.util.ShutdownHookManager$1.run(ShutdownHookManager.java:95)
-21/11/06 12:29:50 ERROR Utils: Uncaught exception in thread shutdown-hook-0
-java.lang.InterruptedException
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(AbstractQueuedSynchronizer.java:1220)
-	at java.util.concurrent.locks.ReentrantLock.lockInterruptibly(ReentrantLock.java:335)
-	at java.util.concurrent.LinkedBlockingQueue.put(LinkedBlockingQueue.java:339)
-	at org.apache.spark.scheduler.AsyncEventQueue.stop(AsyncEventQueue.scala:143)
-	at org.apache.spark.scheduler.LiveListenerBus.$anonfun$removeListener$2(LiveListenerBus.scala:123)
-	at org.apache.spark.scheduler.LiveListenerBus.$anonfun$removeListener$2$adapted(LiveListenerBus.scala:121)
-	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
-	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
-	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
-	at org.apache.spark.scheduler.LiveListenerBus.removeListener(LiveListenerBus.scala:121)
-	at org.apache.spark.SparkContext.removeSparkListener(SparkContext.scala:1670)
-	at org.apache.spark.streaming.StreamingContext.unregisterProgressListener(StreamingContext.scala:735)
-	at org.apache.spark.streaming.StreamingContext.$anonfun$stop$7(StreamingContext.scala:698)
-	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1419)
-	at org.apache.spark.streaming.StreamingContext.stop(StreamingContext.scala:698)
-	at org.apache.spark.streaming.StreamingContext.stopOnShutdown(StreamingContext.scala:724)
-	at org.apache.spark.streaming.StreamingContext.$anonfun$start$4(StreamingContext.scala:606)
-	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
-	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1996)
-	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.util.Try$.apply(Try.scala:213)
-	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
-	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
+21/11/10 14:19:43 INFO ReceiverSupervisorImpl: Stopping receiver with message: Restarting receiver with delay 2000ms: Error receiving data: java.net.SocketException: Socket closed
+21/11/10 14:19:43 WARN ReceiverSupervisorImpl: Receiver has been stopped
+21/11/10 14:19:43 INFO BlockGenerator: Stopping BlockGenerator
+21/11/10 14:19:43 INFO RecurringTimer: Stopped timer for JobGenerator after time 1636534182000
+21/11/10 14:19:43 INFO JobGenerator: Stopped JobGenerator
+21/11/10 14:19:43 INFO JobScheduler: Finished job streaming job 1636534178000 ms.0 from job set of time 1636534178000 ms
+21/11/10 14:19:43 INFO JobScheduler: Starting job streaming job 1636534180000 ms.0 from job set of time 1636534180000 ms
+21/11/10 14:19:43 INFO JobScheduler: Finished job streaming job 1636534180000 ms.0 from job set of time 1636534180000 ms
+21/11/10 14:19:43 INFO JobScheduler: Starting job streaming job 1636534182000 ms.0 from job set of time 1636534182000 ms
+21/11/10 14:19:43 INFO JobScheduler: Stopped JobScheduler
+21/11/10 14:19:43 INFO SparkUI: Stopped Spark web UI at http://pes1ug19cs027:4040
+21/11/10 14:19:43 INFO StreamingContext: StreamingContext stopped successfully
+21/11/10 14:19:43 INFO DiskBlockManager: Shutdown hook called
+21/11/10 14:19:43 INFO ShutdownHookManager: Shutdown hook called
+21/11/10 14:19:43 INFO ShutdownHookManager: Deleting directory /tmp/spark-dd7fe89d-e6c7-4cf7-9f9f-945a32a4dd0b/userFiles-402c3279-2d74-4edb-914a-be6d3ef39cdf
+21/11/10 14:19:43 INFO ShutdownHookManager: Deleting directory /tmp/spark-dd7fe89d-e6c7-4cf7-9f9f-945a32a4dd0b
+21/11/10 14:19:43 INFO ShutdownHookManager: Deleting directory /tmp/spark-dd7fe89d-e6c7-4cf7-9f9f-945a32a4dd0b/pyspark-6746b654-3e1a-4ac8-8afe-1cb275fb6e07
+21/11/10 14:19:43 INFO ShutdownHookManager: Deleting directory /tmp/spark-806a456a-8a3f-4c74-917d-d3edb12f8407
+21/11/10 14:19:43 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
