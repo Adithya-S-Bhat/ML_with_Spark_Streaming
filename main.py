@@ -1,3 +1,7 @@
+from dataExploration import dataExploration
+from evaluate import evaluate
+from model import model
+from preprocess import preprocess
 from pyspark import SparkContext
 from pyspark.sql.functions import *
 from pyspark.sql import SQLContext,SparkSession
@@ -6,7 +10,7 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import *
 import sys
 
-def readMyStream(rdd,schema):
+def readMyStream(rdd,schema,spark):
   if not rdd.isEmpty():
     df = spark.read.json(rdd)
     print('Started the Process')
@@ -16,7 +20,12 @@ def readMyStream(rdd,schema):
       newdf=newdf.union(df.withColumn(str(rowNumber),to_json(col(str(rowNumber))))\
         .select(json_tuple(col(str(rowNumber)),"feature0","feature1","feature2"))\
           .toDF("Subject","Body","Spam/Ham"))
-    newdf.show()
+
+    lengthdf=dataExploration(newdf)
+    clean_df=preprocess(lengthdf)
+    spam_detector=model(clean_df)
+    predictions=spam_detector.transform(clean_df)
+    evaluate(predictions)
   
 
 if __name__ == '__main__':
@@ -33,7 +42,7 @@ if __name__ == '__main__':
       [StructField("Subject",StringType(),True),
       StructField("Body",StringType(),True),
       StructField("Spam/Ham",StringType(),True)])
-  stream_data.foreachRDD(lambda rdd:readMyStream(rdd,schema))
+  stream_data.foreachRDD(lambda rdd:readMyStream(rdd,schema,spark))
 
   ssc.start()
   ssc.awaitTermination()
