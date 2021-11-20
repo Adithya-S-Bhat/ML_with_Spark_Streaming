@@ -6,7 +6,7 @@ from pyspark.sql.functions import *
 
 def dataExploration(df):
     print("Ham messages:",df.filter(df["Spam/Ham"]=="ham").count())
-    print("Spam messages:",df.filter(df["Spam/Ham"]=="ham").count())
+    print("Spam messages:",df.filter(df["Spam/Ham"]=="spam").count())
 
     length_df = df.withColumn('length',length(df['Body'])).select("Body","Spam/Ham","length")
     #length_df.show()

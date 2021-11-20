@@ -18,6 +18,7 @@ from sklearn.linear_model import PassiveAggressiveClassifier
 import numpy as np
 import sys
 import argparse
+import pickle
 
 # Run using /opt/spark/bin/spark-submit main.py -host <hostname> -p <port_no> -b <batch_size> -t <isTest> -m <model_name>
 parser = argparse.ArgumentParser(
@@ -60,6 +61,7 @@ def readMyStream(rdd,schema,spark,classifierModel,isTest):
 
 if __name__ == '__main__':
   args = parser.parse_args()
+  print(args)
   hostname=args.host_name
   port=args.port_number
   batch_size=args.batch_size
@@ -68,7 +70,7 @@ if __name__ == '__main__':
 
   spark_context = SparkContext.getOrCreate()
   spark=SparkSession(spark_context)
-  ssc=StreamingContext(spark_context,10)
+  ssc=StreamingContext(spark_context,5)
 
   stream_data=ssc.socketTextStream(hostname,int(port))
 
@@ -89,13 +91,16 @@ if __name__ == '__main__':
       classifierModel = MLPClassifier(learning_rate='adaptive',solver="sgd",activation="logistic")
     else:
       classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
-  #else:get model from storage
+  else:
+    classifierModel = pickle.load(open(f'models/{modelChosen}', 'rb'))
 
   stream_data.foreachRDD(lambda rdd:readMyStream(rdd,schema,spark,classifierModel,isTest))
 
   ssc.start()
   ssc.awaitTermination()
+  ssc.stop(stopGraceFully=True)
+  
   if(isTest==False):
-    print("save the model")
+    pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
   else:
     print("test metrics")
