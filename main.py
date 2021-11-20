@@ -8,14 +8,33 @@ from pyspark.sql import SQLContext,SparkSession
 from pyspark.streaming import StreamingContext
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
-import sys
+
+#models
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import PassiveAggressiveClassifier
-import numpy as np
 
-def readMyStream(rdd,schema,spark,classifierModel):
+import numpy as np
+import sys
+import argparse
+
+# Run using /opt/spark/bin/spark-submit main.py -host <hostname> -p <port_no> -b <batch_size> -t <isTest> -m <model_name>
+parser = argparse.ArgumentParser(
+    description="main driver file which calls rest of the files")
+parser.add_argument('--host-name', '-host', help='Hostname', required=False,
+                    type=str, default="localhost") 
+parser.add_argument('--port-number', '-p', help='Port Number', required=False,
+                    type=int, default=6100) 
+parser.add_argument('--batch-size', '-b', help='Batch Size', required=True,
+                    type=int) 
+parser.add_argument('--is-test', '-t', help='Is Testing', required=False,
+                    type=bool, default=False) 
+parser.add_argument('--model', '-m', help='Choose Model', required=False,
+                    type=str, default="NB")#model can be 'NB','SVM','LR','MLP','PA'
+
+
+def readMyStream(rdd,schema,spark,classifierModel,isTest):
   if not rdd.isEmpty():
     df = spark.read.json(rdd)
     print('Started the Process')
@@ -25,19 +44,27 @@ def readMyStream(rdd,schema,spark,classifierModel):
       newdf=newdf.union(df.withColumn(str(rowNumber),to_json(col(str(rowNumber))))\
         .select(json_tuple(col(str(rowNumber)),"feature0","feature1","feature2"))\
           .toDF("Subject","Body","Spam/Ham"))
-
-    lengthdf=dataExploration(newdf)
-    clean_df=preprocess(lengthdf)
-    model(clean_df,classifierModel)
-    # X=np.array(clean_df.select('features').collect())
-    # y=np.array(clean_df.select('label').collect())
-    # predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
-    # evaluate(predictions,y.reshape(y.shape[0]))
+    
+    if(isTest==False):
+      lengthdf=dataExploration(newdf)
+      clean_df=preprocess(lengthdf)
+      model(clean_df,classifierModel)
+    else:
+      lengthdf=dataExploration(newdf)
+      clean_df=preprocess(lengthdf)
+      X=np.array(clean_df.select('features').collect())
+      y=np.array(clean_df.select('label').collect())
+      predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
+      evaluate(predictions,y.reshape(y.shape[0]))
   
 
 if __name__ == '__main__':
-  hostname,port,batch_size=sys.argv[1:]
-  batch_size=int(batch_size)
+  args = parser.parse_args()
+  hostname=args.host_name
+  port=args.port_number
+  batch_size=args.batch_size
+  isTest=args.is_test
+  modelChosen=args.model
 
   spark_context = SparkContext.getOrCreate()
   spark=SparkSession(spark_context)
@@ -49,13 +76,26 @@ if __name__ == '__main__':
       [StructField("Subject",StringType(),True),
       StructField("Body",StringType(),True),
       StructField("Spam/Ham",StringType(),True)])
-  #classifierModel = MultinomialNB()
-  #classifierModel = SGDClassifier(alpha=0.1,n_jobs=-1,eta0=0.0,n_iter_no_change=1000)
-  #classifierModel = SGDClassifier(loss="log")
-  #classifierModel = MLPClassifier(learning_rate='adaptive',solver="sgd",activation="logistic")
-  classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
 
-  stream_data.foreachRDD(lambda rdd:readMyStream(rdd,schema,spark,classifierModel))
+  classifierModel=None
+  if(isTest==False):
+    if(modelChosen=="NB"):
+      classifierModel = MultinomialNB()
+    elif(modelChosen=="SVM"):
+      classifierModel = SGDClassifier(alpha=0.1,n_jobs=-1,eta0=0.0,n_iter_no_change=1000)
+    elif(modelChosen=="LR"):
+      classifierModel = SGDClassifier(loss="log")
+    elif(modelChosen=="MLP"):
+      classifierModel = MLPClassifier(learning_rate='adaptive',solver="sgd",activation="logistic")
+    else:
+      classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
+  #else:get model from storage
+
+  stream_data.foreachRDD(lambda rdd:readMyStream(rdd,schema,spark,classifierModel,isTest))
 
   ssc.start()
   ssc.awaitTermination()
+  if(isTest==False):
+    print("save the model")
+  else:
+    print("test metrics")
