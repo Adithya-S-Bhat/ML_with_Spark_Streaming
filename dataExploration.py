@@ -6,8 +6,13 @@ from pyspark.sql.functions import *
 
 def dataExploration(df):
     print("----------------------------") #looks good 
-    print("Ham messages:",df.filter(df["Spam/Ham"]=="ham").count())
-    print("Spam messages:",df.filter(df["Spam/Ham"]=="spam").count())
+    ham_count=df.filter(df["Spam/Ham"]=="ham").count()
+    spam_count=df.filter(df["Spam/Ham"]=="spam").count()
+    total_count=ham_count+spam_count
+    ham_percent=ham_count/total_count
+    spam_percent=spam_count/total_count
+    print("Ham messages:",ham_count," (",ham_percent*100,"%)")
+    print("Spam messages:",spam_count," (",spam_percent*100,"%)")
 
     length_df = df.withColumn('length',length(df['Body'])).select("Body","Spam/Ham","length")
     #length_df.show()
