@@ -3,9 +3,15 @@ Project carried out as a part of Big Data Course at PES University
 
 ## Commands for execution
 
-Command to execute streamer:
+Command to execute streamer(which streams training dataset):
 ```console
 python3 stream.py -f <dataset> -b <batch_size>
+Example: python3 stream.py -f spam -b 5
+```
+
+Command to execute testStreamer(which streams testing dataset):
+```console
+python3 testStream.py -f <dataset> -b <batch_size>
 Example: python3 stream.py -f spam -b 5
 ```
 
