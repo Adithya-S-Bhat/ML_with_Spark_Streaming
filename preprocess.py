@@ -5,11 +5,11 @@ from pyspark.ml.feature import VectorAssembler
 
 #n-gram
 
-def preprocess(df):
+def preprocess(df,hashmap_size):
     tokenizer = Tokenizer(inputCol = 'Body', outputCol = 'tokens')
     stop_remove = StopWordsRemover(inputCol = 'tokens', outputCol = 'stop_token')
     #count_vec = CountVectorizer(inputCol = 'stop_token', outputCol = 'c_vec')
-    hashmap =  HashingTF(inputCol='stop_token', outputCol = 'h_vec',numFeatures=16384)#32768
+    hashmap =  HashingTF(inputCol='stop_token', outputCol = 'h_vec',numFeatures=2**hashmap_size)#16384,32768
     idf = IDF(inputCol = 'h_vec', outputCol = 'tf_idf')
     ham_spam_to_numeric = StringIndexer(inputCol = 'Spam/Ham', outputCol = 'label')
 

@@ -1,5 +1,10 @@
 /pokemon
 /spam
 /cifar
+<<<<<<< HEAD
 **__pycache__/
 /log
+=======
+/__pycache__
+/log
+>>>>>>> 39660d92ae9f07635d5d1b23f08e6392239a76ea
