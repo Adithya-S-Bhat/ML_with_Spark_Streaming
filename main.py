@@ -80,6 +80,6 @@ if __name__ == '__main__':
   ssc.awaitTermination()
   
   if(op=="train"):
-    pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
+    pickle.dump(classifierModel,open(f'modelsV1/{modelChosen}','wb'))
   elif(op=="test"):
     print("test metrics")
