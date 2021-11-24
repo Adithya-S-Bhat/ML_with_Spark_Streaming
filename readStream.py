@@ -10,8 +10,10 @@ from evaluate import evaluate
 from model import model
 from preprocess import preprocess
 
-def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,ssc,spark_context):
+def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams):
   if not rdd.isEmpty():
+    emptyRDD_count[0]=0
+
     df = spark.read.json(rdd)
     print('Started the Process')
 
@@ -32,7 +34,7 @@ def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,s
       X=np.array(clean_df.select('features').collect())
       y=np.array(clean_df.select('label').collect())
       predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
-      evaluate(predictions,y.reshape(y.shape[0]))
+      evaluate(predictions,y.reshape(y.shape[0]),testingParams)
     #else:#cluster
   else:#rdd is empty
     emptyRDD_count[0]+=1

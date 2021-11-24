@@ -1,4 +1,5 @@
 #importing spark related libraries
+from preprocess import preprocess
 from pyspark import SparkContext
 from pyspark.sql.functions import *
 from pyspark.sql import SQLContext,SparkSession
@@ -81,12 +82,31 @@ if __name__ == '__main__':
   #else:#cluster
 
   emptyRDD_count=[0]
-  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,ssc,spark_context))
+  testingParams={'tp':0,'tn':0,'fp':0,'fn':0}
+  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams))
 
   ssc.start()
   ssc.awaitTermination()
   
   if(op=="train"):
-    pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
+    pickle.dump(classifierModel,open(f'modelsV1/{modelChosen}','wb'))
   elif(op=="test"):
-    print("test metrics")
+    #Print test metrics
+    total_samples=testingParams['tp']+testingParams['tn']+testingParams['fp']+testingParams['fn']
+    accuracy=(testingParams['tp']+testingParams['tn'])/total_samples
+    precision=(testingParams['tp'])/(testingParams['tp']+testingParams['fp'])
+    recall=(testingParams['tp'])/(testingParams['tp']+testingParams['fn'])
+    f1=(2*precision*recall)+(precision+recall)
+
+    print(f"Model Name: {modelChosen}")
+    print("----------------------------------")
+    print("\n")
+    print("Confusion Matrix:")
+    print("---------------")
+    print(f"{testingParams['tp']} | {testingParams['fn']}")
+    print("---------------")
+    print(f"{testingParams['fp']} | {testingParams['tn']}")
+    print("---------------")
+    print("\n")
+    print("Accuracy: {:.2f}%".format(accuracy*100))
+    print(f"F1 Score: {f1}")
