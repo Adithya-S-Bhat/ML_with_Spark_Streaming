@@ -46,6 +46,13 @@ if __name__ == '__main__':
   modelChosen=args.model
   hashmap_size=args.hashmap_size
 
+  #storing initial data for visualization purposes
+  spam_count_viz=[0]
+  ham_count_viz=[0]
+  with open('./visualizations/spam.pkl','wb') as f:
+    pickle.dump(spam_count_viz,f)
+    pickle.dump(ham_count_viz,f)
+
   spark_context = SparkContext.getOrCreate()
   spark=SparkSession(spark_context)
   ssc=StreamingContext(spark_context,window_interval)
