@@ -27,3 +27,9 @@ Flags and their meaning:
 -op = Operation being performed, choose one among test, train or cluster.(default=train)     
 -m = Model to be used, choose one among NB, SVM, LR, MLP, PA(i.e., Naive Bayes,Support Vector Machine, Logistic Regression, Multi Layer Perceptron, Passive Aggressive Classifier respectively).(default=NB)   
 -hash = Hashmap size(2^(this number)) to be used, default and recommended hash map size on a system of 4GB RAM is 14 and on 2GB RAM it is 10. But please note that decreasing the hash map size may impact the performance of model due to collisions.
+
+Command to plot visualizations(stored in visualizations folder):
+```console
+python3 ./visualizations/visualizations.py
+Example: python3 ./visualizations/visualizations.py
+```
