@@ -89,14 +89,14 @@ if __name__ == '__main__':
   ssc.awaitTermination()
   
   if(op=="train"):
-    pickle.dump(classifierModel,open(f'modelsV1/{modelChosen}','wb'))
+    pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
   elif(op=="test"):
     #Print test metrics
     total_samples=testingParams['tp']+testingParams['tn']+testingParams['fp']+testingParams['fn']
     accuracy=(testingParams['tp']+testingParams['tn'])/total_samples
     precision=(testingParams['tp'])/(testingParams['tp']+testingParams['fp'])
     recall=(testingParams['tp'])/(testingParams['tp']+testingParams['fn'])
-    f1=(2*precision*recall)+(precision+recall)
+    f1=(2*precision*recall)/(precision+recall)
 
     print(f"Model Name: {modelChosen}")
     print("----------------------------------")
@@ -108,5 +108,5 @@ if __name__ == '__main__':
     print(f"{testingParams['fp']} | {testingParams['tn']}")
     print("---------------")
     print("\n")
-    print("Accuracy: {:.2f}%".format(accuracy*100))
-    print(f"F1 Score: {f1}")
+    print("Accuracy: {:.4f}".format(accuracy))
+    print("F1 Score: {:.4f}".format(f1))

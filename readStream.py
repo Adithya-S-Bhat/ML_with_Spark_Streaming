@@ -15,7 +15,7 @@ def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,s
     emptyRDD_count[0]=0
 
     df = spark.read.json(rdd)
-    print('Started the Process')
+    print('Started Processing a Batch')
 
     newdf=spark.createDataFrame(data=spark_context.emptyRDD(),schema=schema)
     n_samples = len(df.columns)

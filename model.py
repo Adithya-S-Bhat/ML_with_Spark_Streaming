@@ -1,13 +1,5 @@
 from pyspark.sql.functions import *
-from pyspark.ml import Pipeline
-from pyspark.ml.classification import NaiveBayes
 import numpy as np
-
-"""def model(df):
-    nb = NaiveBayes()
-    spam_detector = nb.fit(df)
-
-    return spam_detector"""
 
 def model(df,classifierModel):
     X=np.array(df.select('features').collect())
