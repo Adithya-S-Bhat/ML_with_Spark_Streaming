@@ -12,6 +12,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import PassiveAggressiveClassifier
+from sklearn.cluster import MiniBatchKMeans
 
 #importing other necessary libraries 
 import argparse
@@ -27,13 +28,13 @@ parser.add_argument('--host-name', '-host', help='Hostname', required=False,
 parser.add_argument('--port-number', '-p', help='Port Number', required=False,
                     type=int, default=6100) 
 parser.add_argument('--window_interval', '-w', help='Window Interval', required=False,
-                    type=int, default=5) 
+                    type=int, default=3) 
 parser.add_argument('--op', '-op', help='Operation being performed', required=False,
                     type=str, default="train") # op can be 1 among 'train','test' or 'cluster'
 parser.add_argument('--model', '-m', help='Choose Model', required=False,
                     type=str, default="NB")#model can be 1 among 'NB','SVM','LR','MLP' or 'PA'
 parser.add_argument('--hashmap_size', '-hash', help='Hash map size to be used', required=False,
-                    type=int, default=14)#hashmap_size=2^(this number)
+                    type=int, default=15)#hashmap_size=2^(this number)
                     # default and recommended hash map size on a system of 4GB RAM is 14 and on 2GB RAM it is 10. But please note that decreasing the hash map size may impact the performance of model due to collisions.
 
  
@@ -66,6 +67,8 @@ if __name__ == '__main__':
       StructField("Spam/Ham",StringType(),True)])
 
   classifierModel=None
+  clusteringModel=None
+
   if(op=="train"):
     if(modelChosen=="NB"):
       classifierModel = MultinomialNB()
@@ -74,16 +77,17 @@ if __name__ == '__main__':
     elif(modelChosen=="LR"):
       classifierModel = SGDClassifier(loss="log")
     elif(modelChosen=="MLP"):
-      classifierModel = MLPClassifier(learning_rate='adaptive',solver="sgd",activation="logistic")
+      classifierModel = MLPClassifier(solver="lbfgs",activation="logistic")
     else:
       classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
   elif(op=="test"):
     classifierModel = pickle.load(open(f'models/{modelChosen}', 'rb'))
-  #else:#cluster
+  else:#cluster
+    clusteringModel = MiniBatchKMeans(n_clusters=2, random_state=123)
 
   emptyRDD_count=[0]
   testingParams={'tp':0,'tn':0,'fp':0,'fn':0}
-  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams))
+  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams))
 
   ssc.start()
   ssc.awaitTermination()

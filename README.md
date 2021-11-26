@@ -6,13 +6,13 @@ Project carried out as a part of Big Data Course at PES University
 Command to execute streamer(which streams training dataset):
 ```console
 python3 stream.py -f <dataset> -b <batch_size>
-Example: python3 stream.py -f spam -b 5
+Example: python3 stream.py -f spam -b 80
 ```
 
 Command to execute testStreamer(which streams testing dataset):
 ```console
 python3 testStream.py -f <dataset> -b <batch_size>
-Example: python3 stream.py -f spam -b 5
+Example: python3 stream.py -f spam -b 80
 ```
 
 Command to execute client code(i.e., main.py):
@@ -26,10 +26,13 @@ Flags and their meaning:
 -w = Window Interval(in seconds)(default=5s)     
 -op = Operation being performed, choose one among test, train or cluster.(default=train)     
 -m = Model to be used, choose one among NB, SVM, LR, MLP, PA(i.e., Naive Bayes,Support Vector Machine, Logistic Regression, Multi Layer Perceptron, Passive Aggressive Classifier respectively).(default=NB)   
--hash = Hashmap size(2^(this number)) to be used, default and recommended hash map size on a system of 4GB RAM is 14 and on 2GB RAM it is 10. But please note that decreasing the hash map size may impact the performance of model due to collisions.
+-hash = Hashmap size(2^(this number)) to be used, default and recommended hash map size on a system of 4GB RAM is 15 and on 2GB RAM it is 10. But please note that decreasing the hash map size may impact the performance of model due to collisions.
 
 Command to plot visualizations(stored in visualizations folder):
 ```console
 python3 ./visualizations/visualizations.py
 Example: python3 ./visualizations/visualizations.py
 ```
+
+Required Modules:
+sklearn, numpy

@@ -1,6 +1,6 @@
 from pyspark.sql.functions import *
 from pyspark.ml import Pipeline
-from pyspark.ml.feature import CountVectorizer,HashingTF, Tokenizer, StopWordsRemover, IDF, StringIndexer,MinMaxScaler
+from pyspark.ml.feature import CountVectorizer,HashingTF, Tokenizer, StopWordsRemover, IDF, StringIndexer,StandardScaler
 from pyspark.ml.feature import VectorAssembler
 
 #n-gram
@@ -13,6 +13,7 @@ def preprocess(df,hashmap_size):
     #Normalisation
 
     #Feature extraction
+    df=df.select(regexp_replace(col('data'),'\\p{Punct}','').alias('data'),'length','Spam/Ham')#remove tokens
     tokenizer = Tokenizer(inputCol = 'data', outputCol = 'tokens')
     stop_remove = StopWordsRemover(inputCol = 'tokens', outputCol = 'stop_token')
     #count_vec = CountVectorizer(inputCol = 'stop_token', outputCol = 'c_vec')
@@ -21,6 +22,7 @@ def preprocess(df,hashmap_size):
     ham_spam_to_numeric = StringIndexer(inputCol = 'Spam/Ham', outputCol = 'label',stringOrderType ='alphabetAsc')
 
     clean_up = VectorAssembler(inputCols = ['tf_idf', 'length'], outputCol = 'features')
+    #scaler = StandardScaler(inputCol="vectorized_features", outputCol="features", withStd=True, withMean=False)
 
     pipeline = Pipeline(stages=[ham_spam_to_numeric, tokenizer, stop_remove, hashmap, idf, clean_up])
     cleaner = pipeline.fit(df)

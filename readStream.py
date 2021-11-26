@@ -9,8 +9,9 @@ from dataExploration import dataExploration
 from evaluate import evaluate
 from model import model
 from preprocess import preprocess
+from cluster import cluster
 
-def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams):
+def readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams):
   if not rdd.isEmpty():
     emptyRDD_count[0]=0
 
@@ -28,6 +29,10 @@ def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,s
       lengthdf=dataExploration(newdf)
       clean_df=preprocess(lengthdf,hashmap_size)
       model(clean_df,classifierModel)
+      # X=np.array(clean_df.select('features').collect())
+      # y=np.array(clean_df.select('label').collect())
+      # predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
+      # evaluate(predictions,y.reshape(y.shape[0]),testingParams)
     elif(op=="test"):
       lengthdf=dataExploration(newdf)
       clean_df=preprocess(lengthdf,hashmap_size)
@@ -35,7 +40,11 @@ def readStream(rdd,schema,spark,classifierModel,op,hashmap_size,emptyRDD_count,s
       y=np.array(clean_df.select('label').collect())
       predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
       evaluate(predictions,y.reshape(y.shape[0]),testingParams)
-    #else:#cluster
+    else:#cluster
+      lengthdf=dataExploration(newdf)
+      clean_df=preprocess(lengthdf,hashmap_size)
+      cluster(clean_df,clusteringModel)
+
   else:#rdd is empty
     emptyRDD_count[0]+=1
     if(emptyRDD_count[0]==3):#if 3 empty rdds are received, assume streaming has stopped
