@@ -34,5 +34,9 @@ python3 ./visualizations/visualizations.py
 Example: python3 ./visualizations/visualizations.py
 ```
 
-Required Modules:
-sklearn, numpy
+## Installing required Modules/Dependencies:
+```console
+pip3 install sklearn
+pip3 install numpy
+pip3 install joblibspark
+```

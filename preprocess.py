@@ -6,14 +6,14 @@ from pyspark.ml.feature import VectorAssembler
 #n-gram
 
 def preprocess(df,hashmap_size):
+    print("-> Entered Preprocessing Stage")
+
     #concatenating both body and subject into a single column
     df = df.withColumn('data',concat(col('Subject'),lit(" "),col("Body")))
     df=df.select('data','length','Spam/Ham')
 
-    #Normalisation
-
     #Feature extraction
-    df=df.select(regexp_replace(col('data'),'\\p{Punct}','').alias('data'),'length','Spam/Ham')#remove tokens
+    df=df.select(regexp_replace(col('data'),'\\p{Punct}','').alias('data'),'length','Spam/Ham')#removing punctuations
     tokenizer = Tokenizer(inputCol = 'data', outputCol = 'tokens')
     stop_remove = StopWordsRemover(inputCol = 'tokens', outputCol = 'stop_token')
     #count_vec = CountVectorizer(inputCol = 'stop_token', outputCol = 'c_vec')

@@ -20,6 +20,12 @@ import pickle
 
 from readStream import readStream
 
+#joblib libraries for parallel processing of sklearn models
+from joblibspark import register_spark
+from sklearn.utils import parallel_backend
+
+register_spark()#register joblib with spark backend
+
 # Run using /opt/spark/bin/spark-submit main.py -host <hostname> -p <port_no> -b <batch_size> -t <isTest> -m <model_name>
 parser = argparse.ArgumentParser(
     description="main driver file which calls rest of the files")
@@ -77,7 +83,7 @@ if __name__ == '__main__':
     elif(modelChosen=="LR"):
       classifierModel = SGDClassifier(loss="log")
     elif(modelChosen=="MLP"):
-      classifierModel = MLPClassifier(solver="lbfgs",activation="logistic")
+      classifierModel = MLPClassifier(activation="logistic")
     else:
       classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
   elif(op=="test"):
@@ -87,7 +93,7 @@ if __name__ == '__main__':
 
   emptyRDD_count=[0]
   testingParams={'tp':0,'tn':0,'fp':0,'fn':0}
-  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams))
+  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams,parallel_backend))
 
   ssc.start()
   ssc.awaitTermination()

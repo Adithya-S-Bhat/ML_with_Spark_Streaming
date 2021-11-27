@@ -4,6 +4,7 @@ from pyspark.sql.functions import *
 #importing other necessary libraries 
 import numpy as np
 
+
 #importing necessary files
 from dataExploration import dataExploration
 from evaluate import evaluate
@@ -11,13 +12,15 @@ from model import model
 from preprocess import preprocess
 from cluster import cluster
 
-def readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams):
+def readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams,parallel_backend):
   if not rdd.isEmpty():
     emptyRDD_count[0]=0
 
+    #parsing json to get a df
     df = spark.read.json(rdd)
-    print('Started Processing a Batch')
+    print('\nStarted Processing a Batch')
 
+    # applying schema to it
     newdf=spark.createDataFrame(data=spark_context.emptyRDD(),schema=schema)
     n_samples = len(df.columns)
     for rowNumber in range(n_samples):
@@ -28,11 +31,11 @@ def readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,
     if(op=="train"):
       lengthdf=dataExploration(newdf)
       clean_df=preprocess(lengthdf,hashmap_size)
-      model(clean_df,classifierModel)
-      # X=np.array(clean_df.select('features').collect())
-      # y=np.array(clean_df.select('label').collect())
-      # predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
-      # evaluate(predictions,y.reshape(y.shape[0]),testingParams)
+      model(clean_df,classifierModel,parallel_backend)
+      X=np.array(clean_df.select('features').collect())
+      y=np.array(clean_df.select('label').collect())
+      predictions=classifierModel.predict(X.reshape(X.shape[0],X.shape[2]))
+      evaluate(predictions,y.reshape(y.shape[0]),testingParams)
     elif(op=="test"):
       lengthdf=dataExploration(newdf)
       clean_df=preprocess(lengthdf,hashmap_size)

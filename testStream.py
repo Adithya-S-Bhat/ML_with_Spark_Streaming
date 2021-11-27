@@ -198,7 +198,7 @@ def streamCSVFile(tcp_connection, input_file):    # stream a CSV file to Spark
             print("Either batch size is too big for the dataset or the connection was closed")
         except Exception as error_message:
             print(f"Exception thrown but was handled: {error_message}")
-        time.sleep(5)
+        time.sleep(3)
 
 
 def streamFile(tcp_connection, input_file):  # stream a newline delimited file to Spark
