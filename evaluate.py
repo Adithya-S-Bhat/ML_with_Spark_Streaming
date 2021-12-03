@@ -1,10 +1,13 @@
 from sklearn.metrics import accuracy_score,confusion_matrix
 
-def evaluate(predictions,y_true,testingParams):
+def evaluate(predictions,y_true,testingParams,op):
     print("-> Model Evaluation Stage")
 
     accuracy=accuracy_score(predictions,y_true)
-    print("Test Accuracy:",accuracy)
+    if(op=="test"):
+        print("Test Batch Dataset Accuracy:",accuracy)
+    else:
+        print("Training Batch Dataset Accuracy:",accuracy)
 
     CM=confusion_matrix(y_true,predictions)
     #since, its a binary classification 

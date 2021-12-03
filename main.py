@@ -1,5 +1,5 @@
 #importing spark related libraries
-from preprocess import preprocess
+from model import model
 from pyspark import SparkContext
 from pyspark.sql.functions import *
 from pyspark.sql import SQLContext,SparkSession
@@ -7,12 +7,17 @@ from pyspark.streaming import StreamingContext
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
 
+#importing other necessary files
+from preprocess import preprocess
+from helper import *
+
 #import different model libraries
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.cluster import MiniBatchKMeans
+from sklearn.cluster import Birch
 
 #importing other necessary libraries 
 import argparse
@@ -20,47 +25,42 @@ import pickle
 
 from readStream import readStream
 
-#joblib libraries for parallel processing of sklearn models
-from joblibspark import register_spark
-from sklearn.utils import parallel_backend
-
-register_spark()#register joblib with spark backend
+# joblib libraries for parallel processing of sklearn models-> uncomment if it improves performance
+# from joblibspark import register_spark
+# register_spark()#register joblib with spark backend
 
 # Run using /opt/spark/bin/spark-submit main.py -host <hostname> -p <port_no> -b <batch_size> -t <isTest> -m <model_name>
 parser = argparse.ArgumentParser(
-    description="main driver file which calls rest of the files")
-parser.add_argument('--host-name', '-host', help='Hostname', required=False,
-                    type=str, default="localhost") 
-parser.add_argument('--port-number', '-p', help='Port Number', required=False,
-                    type=int, default=6100) 
-parser.add_argument('--window_interval', '-w', help='Window Interval', required=False,
-                    type=int, default=3) 
-parser.add_argument('--op', '-op', help='Operation being performed', required=False,
-                    type=str, default="train") # op can be 1 among 'train','test' or 'cluster'
-parser.add_argument('--model', '-m', help='Choose Model', required=False,
-                    type=str, default="NB")#model can be 1 among 'NB','SVM','LR','MLP' or 'PA'
-parser.add_argument('--hashmap_size', '-hash', help='Hash map size to be used', required=False,
-                    type=int, default=15)#hashmap_size=2^(this number)
-                    # default and recommended hash map size on a system of 4GB RAM is 14 and on 2GB RAM it is 10. But please note that decreasing the hash map size may impact the performance of model due to collisions.
+    description="main driver program which calls rest of the files")
+addArguments(parser)
 
  
 if __name__ == '__main__':
+  #get command line argumetns
   args = parser.parse_args()
   print(args)
+
+  #declaration of command line argument values
   hostname=args.host_name
   port=args.port_number
   window_interval=args.window_interval
   op=args.op
+  proc=args.proc
+  sf=args.sampleFraction
   modelChosen=args.model
+  isClustering=args.cluster
+  explore=args.explore
   hashmap_size=args.hashmap_size
 
   #storing initial data for visualization purposes
-  spam_count_viz=[0]
-  ham_count_viz=[0]
-  with open('./visualizations/spam.pkl','wb') as f:
-    pickle.dump(spam_count_viz,f)
-    pickle.dump(ham_count_viz,f)
+  if(explore==True):
+    spam_count_viz=[0]
+    ham_count_viz=[0]
+    with open('./visualizations/spam.pkl','wb') as f:
+      pickle.dump(spam_count_viz,f)
+      pickle.dump(ham_count_viz,f)
 
+  #initialisation of spark context and streaming spark context
   spark_context = SparkContext.getOrCreate()
   spark=SparkSession(spark_context)
   ssc=StreamingContext(spark_context,window_interval)
@@ -76,47 +76,52 @@ if __name__ == '__main__':
   clusteringModel=None
 
   if(op=="train"):
-    if(modelChosen=="NB"):
-      classifierModel = MultinomialNB()
-    elif(modelChosen=="SVM"):
-      classifierModel = SGDClassifier(alpha=0.1,n_jobs=-1,eta0=0.0,n_iter_no_change=1000)
-    elif(modelChosen=="LR"):
-      classifierModel = SGDClassifier(loss="log")
-    elif(modelChosen=="MLP"):
-      classifierModel = MLPClassifier(activation="logistic")
+    if(isClustering==False):
+      if(modelChosen=="NB"):
+        classifierModel = MultinomialNB()
+      elif(modelChosen=="SVM"):
+        classifierModel = SGDClassifier(alpha=0.1,n_jobs=-1,eta0=0.0,n_iter_no_change=1000)
+      elif(modelChosen=="LR"):
+        classifierModel = SGDClassifier(loss="log")
+      elif(modelChosen=="MLP"):
+        classifierModel = MLPClassifier(activation="logistic")
+      else:
+        classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
     else:
-      classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
+      if(modelChosen=="KMeans"):
+        clusteringModel = MiniBatchKMeans(n_clusters=2, random_state=123)
+      else:#Birch
+        clusteringModel = Birch(n_clusters=2)
   elif(op=="test"):
-    classifierModel = pickle.load(open(f'models/{modelChosen}', 'rb'))
-  else:#cluster
-    clusteringModel = MiniBatchKMeans(n_clusters=2, random_state=123)
+    if(isClustering==False):
+      classifierModel = pickle.load(open(f'modelsWith{proc}/{modelChosen}', 'rb'))
+    else:#cluster
+      clusteringModel = pickle.load(open(f'clusteringModels/{modelChosen}', 'rb'))
 
   emptyRDD_count=[0]
   testingParams={'tp':0,'tn':0,'fp':0,'fn':0}
-  stream_data.foreachRDD(lambda rdd:readStream(rdd,schema,spark,classifierModel,clusteringModel,op,hashmap_size,emptyRDD_count,ssc,spark_context,testingParams,parallel_backend))
+  parameters = {
+    "schema":schema,
+    "op":op,"proc":proc,"sf":sf,
+    "hashmap_size":hashmap_size,
+    "isClustering":isClustering,
+    "explore" : explore
+  }
+  stream_data.foreachRDD(lambda rdd:readStream(rdd,ssc,\
+    spark,spark_context,classifierModel,clusteringModel,\
+      parameters,testingParams,emptyRDD_count))
 
   ssc.start()
   ssc.awaitTermination()
   
   if(op=="train"):
-    pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
+    if(isClustering==False):
+      pickle.dump(classifierModel,open(f'modelsWith{proc}/{modelChosen}','wb'))
+    else:#cluster
+      pickle.dump(clusteringModel,open(f'clusteringModels/{modelChosen}','wb'))
   elif(op=="test"):
-    #Print test metrics
-    total_samples=testingParams['tp']+testingParams['tn']+testingParams['fp']+testingParams['fn']
-    accuracy=(testingParams['tp']+testingParams['tn'])/total_samples
-    precision=(testingParams['tp'])/(testingParams['tp']+testingParams['fp'])
-    recall=(testingParams['tp'])/(testingParams['tp']+testingParams['fn'])
-    f1=(2*precision*recall)/(precision+recall)
-
-    print(f"Model Name: {modelChosen}")
-    print("----------------------------------")
-    print("\n")
-    print("Confusion Matrix:")
-    print("---------------")
-    print(f"{testingParams['tp']} | {testingParams['fn']}")
-    print("---------------")
-    print(f"{testingParams['fp']} | {testingParams['tn']}")
-    print("---------------")
-    print("\n")
-    print("Accuracy: {:.4f}".format(accuracy))
-    print("F1 Score: {:.4f}".format(f1))
+    if(isClustering==False):
+      #Print test metrics
+      printMetrics(testingParams,modelChosen)
+    else:#cluster
+      print("plot clusters")
