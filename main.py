@@ -94,7 +94,7 @@ if __name__ == '__main__':
         clusteringModel = Birch(n_clusters=2)
   elif(op=="test"):
     if(isClustering==False):
-      classifierModel = pickle.load(open(f'modelsWith{proc}/{modelChosen}', 'rb'))
+      classifierModel = pickle.load(open(f'models/{modelChosen}', 'rb'))
     else:#cluster
       clusteringModel = pickle.load(open(f'clusteringModels/{modelChosen}', 'rb'))
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
   
   if(op=="train"):
     if(isClustering==False):
-      pickle.dump(classifierModel,open(f'modelsWith{proc}/{modelChosen}','wb'))
+      pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
     else:#cluster
       pickle.dump(clusteringModel,open(f'clusteringModels/{modelChosen}','wb'))
   elif(op=="test"):
