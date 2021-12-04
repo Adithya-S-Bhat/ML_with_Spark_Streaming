@@ -101,4 +101,5 @@ if __name__ == '__main__':
       #Print test metrics
       printMetrics(testingParams,modelChosen)
     else:#cluster
-      print("plot clusters")
+      #plot clusters
+      plotClusters()
