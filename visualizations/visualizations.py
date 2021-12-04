@@ -41,11 +41,11 @@ plt.close()
 
 
 # side by side bar chart
-#plt.rcParams["figure.figsize"] = [7.00, 7.00]
-#plt.rcParams["figure.autolayout"] = True
-spam_count_bar_chart = spam_count_viz
-ham_count_bar_chart = ham_count_viz
-labels = list(range(len(spam_count_viz)))
+plt.rcParams["figure.figsize"] = [13.00, 5]
+plt.rcParams["figure.autolayout"] = True
+spam_count_bar_chart = spam_count_viz[1:]
+ham_count_bar_chart = ham_count_viz[1:]
+labels = list(range(len(spam_count_viz)))[1:]
 
 x = np.arange(len(labels))
 width = 0.35
