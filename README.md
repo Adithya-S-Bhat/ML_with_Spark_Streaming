@@ -42,6 +42,7 @@ Example: python3 ./visualizations/visualizations.py
 ```console
 pip3 install sklearn
 pip3 install numpy
+pip3 install matplotlib
 pip3 install joblibspark
 pip3 install spark-nlp==3.3.4
 ```

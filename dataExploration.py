@@ -39,8 +39,9 @@ def dataExploration(df,explore):
         print("Spam messages:",spam_count," (",spam_percent*100,"%)")
 
     length_df = df.withColumn('length',length(df['Body']))
+
     if(explore==True):
-        length_df.show()
+        length_df.show(3)
 
         meandf=length_df.groupBy('Spam/Ham').mean()
         vardf=length_df.groupBy('Spam/Ham').agg({'length':'variance'})

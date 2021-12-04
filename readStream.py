@@ -3,7 +3,9 @@ from pyspark.sql.functions import *
 
 #importing other necessary libraries 
 import numpy as np
+import os
 
+from sklearn.decomposition import TruncatedSVD
 
 #importing necessary files
 from dataExploration import dataExploration
@@ -12,7 +14,7 @@ from model import model
 from preprocess import preprocess
 from cluster import cluster
 
-def readStream(rdd,ssc,spark,spark_context,classifierModel,clusteringModel,parameters,testingParams,emptyRDD_count=None):
+def readStream(rdd,ssc,spark,spark_context,classifierModel,clusteringModel,modelChosen,parameters,testingParams,emptyRDD_count=None):
   schema=parameters["schema"]
   op=parameters["op"]
   isClustering=parameters["isClustering"]
@@ -66,12 +68,32 @@ def readStream(rdd,ssc,spark,spark_context,classifierModel,clusteringModel,param
 
     else:#cluster
       if(op=="train"):
-        cluster(clean_df,clusteringModel)
+        cluster(clean_df,clusteringModel,modelChosen)
       else:
         X = np.array(clean_df.select('features').collect())
-        class_pred = classifierModel.predict(X)
-        data = np.concatenate((X, class_pred.T), axis=1)
-        f = open('clusteringModels/results.npy','ab')
+        X = X.reshape(X.shape[0],X.shape[2])
+
+        tsvd = TruncatedSVD(n_components=10)
+        data = tsvd.fit_transform(X[:,:-1])
+        class_pred = clusteringModel.predict(data)
+        class_pred = np.reshape(class_pred,(class_pred.shape[0],1))
+
+        data = np.concatenate((data, class_pred), axis=1)
+        X = class_pred = None
+
+        print("-> Saving points and their class to a file")
+        arr = np.array([])
+        if(os.path.isfile("clusteringModels/results.npy")):
+          f = open('clusteringModels/results.npy','rb')
+          arr = np.load(f,allow_pickle=True)
+          f.close()
+        f = open('clusteringModels/results.npy','wb')
+        if(arr.shape[0]!=0):
+          print("Current batch data shape:",data.shape)
+          print(f"Previously stored data shape{arr.shape}")
+          data = np.concatenate((arr,data))
+          print("Concatentated Data shape:",data.shape)
+        arr= None
         np.save(f,data)
         f.close()
 

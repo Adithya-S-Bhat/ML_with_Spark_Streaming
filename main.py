@@ -1,5 +1,4 @@
 #importing spark related libraries
-from model import model
 from pyspark import SparkContext
 from pyspark.sql.functions import *
 from pyspark.sql import SQLContext,SparkSession
@@ -16,8 +15,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import PassiveAggressiveClassifier
-from sklearn.cluster import MiniBatchKMeans
-from sklearn.cluster import Birch
+from sklearn.cluster import MiniBatchKMeans, Birch
+from customKmeans.KMeans import KMeansClustering
 
 #importing other necessary libraries 
 import argparse
@@ -51,6 +50,7 @@ if __name__ == '__main__':
   isClustering=args.cluster
   explore=args.explore
   hashmap_size=args.hashmap_size
+  endless=args.endless
 
   #storing initial data for visualization purposes
   if(explore==True):
@@ -67,39 +67,15 @@ if __name__ == '__main__':
 
   stream_data=ssc.socketTextStream(hostname,int(port))
 
-  schema=StructType(
+  schema = StructType(
       [StructField("Subject",StringType(),True),
       StructField("Body",StringType(),True),
       StructField("Spam/Ham",StringType(),True)])
 
-  classifierModel=None
-  clusteringModel=None
+  classifierModel, clusteringModel = initializeModel(op, isClustering, modelChosen, endless) 
 
-  if(op=="train"):
-    if(isClustering==False):
-      if(modelChosen=="NB"):
-        classifierModel = MultinomialNB()
-      elif(modelChosen=="SVM"):
-        classifierModel = SGDClassifier(alpha=0.1,n_jobs=-1,eta0=0.0,n_iter_no_change=1000)
-      elif(modelChosen=="LR"):
-        classifierModel = SGDClassifier(loss="log")
-      elif(modelChosen=="MLP"):
-        classifierModel = MLPClassifier(activation="logistic")
-      else:
-        classifierModel = PassiveAggressiveClassifier(n_jobs=-1,C=0.5,random_state=5)
-    else:
-      if(modelChosen=="KMeans"):
-        clusteringModel = MiniBatchKMeans(n_clusters=2, random_state=123)
-      else:#Birch
-        clusteringModel = Birch(n_clusters=2)
-  elif(op=="test"):
-    if(isClustering==False):
-      classifierModel = pickle.load(open(f'models/{modelChosen}', 'rb'))
-    else:#cluster
-      clusteringModel = pickle.load(open(f'clusteringModels/{modelChosen}', 'rb'))
-
-  emptyRDD_count=[0]
-  testingParams={'tp':0,'tn':0,'fp':0,'fn':0}
+  emptyRDD_count=[0]# for keeping track of empty rdds
+  testingParams={'tp':0,'tn':0,'fp':0,'fn':0}# for keeping track of test metrics
   parameters = {
     "schema":schema,
     "op":op,"proc":proc,"sf":sf,
@@ -109,7 +85,7 @@ if __name__ == '__main__':
   }
   stream_data.foreachRDD(lambda rdd:readStream(rdd,ssc,\
     spark,spark_context,classifierModel,clusteringModel,\
-      parameters,testingParams,emptyRDD_count))
+      modelChosen,parameters,testingParams,emptyRDD_count))
 
   ssc.start()
   ssc.awaitTermination()
@@ -118,6 +94,7 @@ if __name__ == '__main__':
     if(isClustering==False):
       pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
     else:#cluster
+      print("pickling cluster model")
       pickle.dump(clusteringModel,open(f'clusteringModels/{modelChosen}','wb'))
   elif(op=="test"):
     if(isClustering==False):

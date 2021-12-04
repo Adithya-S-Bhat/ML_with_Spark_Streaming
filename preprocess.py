@@ -86,7 +86,6 @@ def preprocess(df,hashmap_size,proc):
         idf = IDF(inputCol = 'h_vec', outputCol = 'tf_idf')
 
         clean_up = VectorAssembler(inputCols = ['tf_idf', 'length'], outputCol = 'features')
-        #scaler = StandardScaler(inputCol="vectorized_features", outputCol="features", withStd=True, withMean=False)
 
         pipeline = Pipeline(stages=[ham_spam_to_numeric, regexTokenizer, stop_remove, hashmap, idf, clean_up])
     pipelineFit = pipeline.fit(df)
