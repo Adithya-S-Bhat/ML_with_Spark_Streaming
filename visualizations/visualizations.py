@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pickle
+import numpy as np
 
 #getting data using pickle
 
@@ -38,6 +39,42 @@ plt.legend(['Spam', 'Ham'], loc=3)
 plt.savefig("Spam_Ham_per_batch")
 plt.close()
 
+
+# side by side bar chart
+#plt.rcParams["figure.figsize"] = [7.00, 7.00]
+#plt.rcParams["figure.autolayout"] = True
+spam_count_bar_chart = spam_count_viz
+ham_count_bar_chart = ham_count_viz
+labels = list(range(len(spam_count_viz)))
+
+x = np.arange(len(labels))
+width = 0.35
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(x - width / 2, spam_count_bar_chart, width, label='Spam')
+rects2 = ax.bar(x + width / 2, ham_count_bar_chart, width, label='Ham')
+
+ax.set_ylabel('Count')
+ax.set_xlabel('Batch')
+ax.set_title('Spam/Ham')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+def autolabel(rects):
+   for rect in rects:
+      height = rect.get_height()
+      ax.annotate('{}'.format(height),
+         xy=(rect.get_x() + rect.get_width() / 2, height),
+         xytext=(0, 3), # 3 points vertical offset
+         textcoords="offset points",
+         ha='center', va='bottom')
+
+autolabel(rects1)
+autolabel(rects2)
+plt.savefig("Spam_Ham_per_batch_side_by_side")
+#plt.show()
+plt.close()
 
 
 
