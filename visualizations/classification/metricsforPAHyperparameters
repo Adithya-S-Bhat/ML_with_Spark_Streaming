@@ -1,0 +1,19 @@
+real    177m5.417s
+user    236m19.772s
+sys     18m54.461s
+
+Confusion Matrix:
+---------------
+638 | 584
+---------------
+0 | 1324
+---------------
+
+Accuracy: 0.7706
+Precision: 1.0000
+Recall: 0.5221
+F1 Score: 0.6860
+
+real    22m5.764s
+user    33m19.283s
+sys     2m14.874s
