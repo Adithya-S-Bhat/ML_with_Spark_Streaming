@@ -18,6 +18,7 @@ def readStream(rdd,ssc,spark,spark_context,classifierModel,clusteringModel,model
   schema=parameters["schema"]
   op=parameters["op"]
   isClustering=parameters["isClustering"]
+  endless=parameters["endless"]
   explore=parameters["explore"]
   proc=parameters["proc"]
   sampleFrac=parameters["sf"]
@@ -44,7 +45,7 @@ def readStream(rdd,ssc,spark,spark_context,classifierModel,clusteringModel,model
     df.unpersist()
     
     #sampling the df because not everything can be stored in memory 
-    newdf=newdf.sample(fraction=sampleFrac)
+    newdf=newdf.sample(fraction=sampleFrac,seed=10)
     
     lengthdf=dataExploration(newdf,explore)
     clean_df=preprocess(lengthdf,hashmap_size,proc)
@@ -68,17 +69,18 @@ def readStream(rdd,ssc,spark,spark_context,classifierModel,clusteringModel,model
 
     else:#cluster
       if(op=="train"):
-        cluster(clean_df,clusteringModel,modelChosen)
+        cluster(clean_df,clusteringModel,ssc,modelChosen,endless)
       else:
         X = np.array(clean_df.select('features').collect())
         X = X.reshape(X.shape[0],X.shape[2])
+        y=np.array(clean_df.select('label').collect())
 
         tsvd = TruncatedSVD(n_components=10)
         data = tsvd.fit_transform(X[:,:-1])
         class_pred = clusteringModel.predict(data)
         class_pred = np.reshape(class_pred,(class_pred.shape[0],1))
 
-        data = np.concatenate((data, class_pred), axis=1)
+        data = np.concatenate((data, class_pred,y), axis=1)
         X = class_pred = None
 
         print("-> Saving points and their class to a file")

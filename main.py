@@ -77,7 +77,7 @@ if __name__ == '__main__':
   emptyRDD_count=[0]# for keeping track of empty rdds
   testingParams={'tp':0,'tn':0,'fp':0,'fn':0}# for keeping track of test metrics
   parameters = {
-    "schema":schema,
+    "schema":schema,"endless":endless,
     "op":op,"proc":proc,"sf":sf,
     "hashmap_size":hashmap_size,
     "isClustering":isClustering,
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     if(isClustering==False):
       pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
     else:#cluster
-      print("pickling cluster model")
+      print("Pickling cluster model")
       pickle.dump(clusteringModel,open(f'clusteringModels/{modelChosen}','wb'))
   elif(op=="test"):
     if(isClustering==False):

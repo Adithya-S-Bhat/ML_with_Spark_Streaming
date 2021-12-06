@@ -64,7 +64,7 @@ def preprocess(df,hashmap_size,proc):
 
     #concatenating both body and subject into a single column
     df = df.withColumn('data',concat(col('Subject'),lit(" "),col("Body")))
-    df = df.drop('Subject','Body')#.select('data','length','Spam/Ham')
+    df = df.drop('Subject','Body')
     #call spark-nlp models here
 
     #Feature extraction
@@ -76,7 +76,7 @@ def preprocess(df,hashmap_size,proc):
     pipeline = None
     if(proc=='word2vec'):
         tokenizer = Tokenizer(inputCol = 'data', outputCol = 'tokens')
-        word2vec = Word2Vec(vectorSize=100, seed=12, inputCol='tokens', outputCol='features')
+        word2vec = Word2Vec(vectorSize=300, seed=12, inputCol='tokens', outputCol='features')
         pipeline = Pipeline(stages=[ham_spam_to_numeric, tokenizer, word2vec])
     else:#tf
         regexTokenizer = RegexTokenizer(inputCol =  'data', outputCol = 'tokens', pattern="[\\p{Punct}\\s]+")

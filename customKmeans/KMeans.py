@@ -1,6 +1,8 @@
 import numpy as np
 from numpy.core.fromnumeric import argmin
 
+from cluster import cluster
+
 
 class KMeansClustering:
     """
@@ -10,7 +12,7 @@ class KMeansClustering:
         n_clusters: Number of clusters(int)
     """
 
-    def __init__(self, n_clusters, max_iter=100, delta=0.001):
+    def __init__(self, n_clusters, max_iter=10, delta=0.001):
 
         self.n_cluster = n_clusters
         self.max_iter = max_iter
@@ -28,26 +30,28 @@ class KMeansClustering:
         Args:
             data: M x D Matrix(M data points with D attributes each)(numpy float)
         Returns:
-            1 if converged otherwise returns -1
+            Distance between old set of clusters and the new ones.
         """
         if data.shape[0] < self.n_cluster:
             raise ValueError(
-                'Number of clusters is grater than number of datapoints')
+                'Number of clusters is greater than number of datapoints')
 
         best_centroids = None
         m_score = float('inf')
+        clusterDifference=0
 
-        if(self.centroids==None):
-            self.init_centroids(data)
+        if(type(self.centroids) is not np.ndarray):
+            if(self.centroids==None):
+                self.init_centroids(data)
 
+        old_centroid = np.copy(self.centroids)
         for _ in range(self.max_iter):
             cluster_assign = self.e_step(data)
-            old_centroid = np.copy(self.centroids)
             self.m_step(data, cluster_assign)
 
             if np.abs(old_centroid - self.centroids).sum() < self.delta:
-                return 1
-
+                return np.abs(old_centroid - self.centroids).sum()
+            clusterDifference = np.abs(old_centroid - self.centroids).sum()
         cur_score = self.evaluate(data)
 
         if cur_score < m_score:
@@ -56,7 +60,7 @@ class KMeansClustering:
 
         self.centroids = best_centroids
 
-        return -1
+        return clusterDifference
 
     def e_step(self, data):
         """
@@ -93,7 +97,8 @@ class KMeansClustering:
             for i in range(len(cluster_assgn)):
                 if(cluster_assgn[i]==index):
                     elementsList.append(data[i])
-            self.centroids[index]=np.mean(elementsList,axis=0)
+            if(len(elementsList)!=0):
+                self.centroids[index]=np.mean(elementsList,axis=0)
 
     def evaluate(self, data):
         """

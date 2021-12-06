@@ -52,10 +52,10 @@ def initializeModel(op,isClustering,modelChosen,endless):
         if(isClustering==False):
             if(modelChosen=="NB"):
                 classifierModel = MultinomialNB()
-            elif(modelChosen=="SVM"):#linear svm
-                classifierModel = SGDClassifier(alpha=0.1,n_jobs=-1,eta0=0.0,n_iter_no_change=1000)
+            elif(modelChosen=="SVM"):
+                classifierModel = SGDClassifier(alpha=0.0001,learning_rate='adaptive',eta0=0.5,n_jobs=-1,n_iter_no_change=1000)
             elif(modelChosen=="LR"):
-                classifierModel = SGDClassifier(loss="log")
+                classifierModel = SGDClassifier(loss="log",alpha=0.0001,learning_rate='adaptive',eta0=0.5)
             elif(modelChosen=="MLP"):
                 classifierModel = MLPClassifier(activation="logistic")
             else:
@@ -105,8 +105,8 @@ def plotClusters():
     f.close()
 
     pca = PCA(n_components=3)
-    pca_result = pca.fit_transform(arr[:,:-1])
-    print('Explained variation per principal component: {}'.format(np.sum(pca.explained_variance_ratio_)))
+    pca_result = pca.fit_transform(arr[:,:-2])
+    print('Explained variance by the selected principal component: {}'.format(np.sum(pca.explained_variance_ratio_)))
 
     fig=plt.figure()
     ax = fig.add_subplot(121,projection="3d")
@@ -114,7 +114,7 @@ def plotClusters():
         xs=pca_result[:,0], 
         ys=pca_result[:,1], 
         zs=pca_result[:,2], 
-        c=arr[:,-1], 
+        c=arr[:,-2], 
         linewidths=3,
         cmap='tab10'
     )
