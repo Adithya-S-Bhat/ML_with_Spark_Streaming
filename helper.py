@@ -41,7 +41,7 @@ def addArguments(parser):
     parser.add_argument('--hashmap_size', '-hash', help='Hash map size to be used', required=False,
                         type=int, default=14)#hashmap_size=2^(this number)
 
-def initializeModel(op,isClustering,modelChosen,endless):
+def initializeModel(op,isClustering,modelChosen,endless,proc):
     """
     Helps in choosing the classifier or the clustering based on the 
     command line arguments sent as parameters to this function.
@@ -55,7 +55,7 @@ def initializeModel(op,isClustering,modelChosen,endless):
             elif(modelChosen=="SVM"):
                 classifierModel = SGDClassifier(alpha=0.0001,learning_rate='adaptive',eta0=0.5,n_jobs=-1,n_iter_no_change=1000)
             elif(modelChosen=="LR"):
-                classifierModel = SGDClassifier(loss="log",alpha=0.0001,learning_rate='adaptive',eta0=0.5)
+                classifierModel = SGDClassifier(loss="log")
             elif(modelChosen=="MLP"):
                 classifierModel = MLPClassifier(activation="logistic")
             else:
@@ -70,7 +70,7 @@ def initializeModel(op,isClustering,modelChosen,endless):
                     clusteringModel = Birch(n_clusters=2)
     elif(op=="test"):
         if(isClustering==False):
-            classifierModel = pickle.load(open(f'models/{modelChosen}', 'rb'))
+            classifierModel = pickle.load(open(f'trainedClassifierModels/with{proc}/{modelChosen}', 'rb'))
         else:#cluster
             clusteringModel = pickle.load(open(f'clusteringModels/{modelChosen}', 'rb'))
     return (classifierModel,clusteringModel)

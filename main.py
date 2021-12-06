@@ -72,7 +72,7 @@ if __name__ == '__main__':
       StructField("Body",StringType(),True),
       StructField("Spam/Ham",StringType(),True)])
 
-  classifierModel, clusteringModel = initializeModel(op, isClustering, modelChosen, endless) 
+  classifierModel, clusteringModel = initializeModel(op, isClustering, modelChosen, endless,proc) 
 
   emptyRDD_count=[0]# for keeping track of empty rdds
   testingParams={'tp':0,'tn':0,'fp':0,'fn':0}# for keeping track of test metrics
@@ -92,7 +92,7 @@ if __name__ == '__main__':
   
   if(op=="train"):
     if(isClustering==False):
-      pickle.dump(classifierModel,open(f'models/{modelChosen}','wb'))
+      pickle.dump(classifierModel,open(f'trainedClassifierModels/with{proc}/{modelChosen}','wb'))
     else:#cluster
       print("Pickling cluster model")
       pickle.dump(clusteringModel,open(f'clusteringModels/{modelChosen}','wb'))
