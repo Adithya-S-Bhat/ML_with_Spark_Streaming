@@ -15,7 +15,20 @@ Recall: 0.9876
 F1 Score: 0.9500
 
 For Hyper Parameter 2: C=1,loss="hinge"
+Model Name: PA
+----------------------------------
 
+Confusion Matrix:
+---------------
+638 | 584
+---------------
+0 | 1324
+---------------
+
+Accuracy: 0.7706
+Precision: 1.0000
+Recall: 0.5221
+F1 Score: 0.6860
 
 
 For Hyper Parameter 3: C=0.5,loss="squared-hinge"

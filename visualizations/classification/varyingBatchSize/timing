@@ -1,5 +1,7 @@
 For batch size 50:
-
+real    177m5.417s
+user    236m19.772s
+sys     18m54.461s
 
 For batch size 60:
 real    157m22.152s
