@@ -94,7 +94,7 @@ Hyper Parameter Tuning is performed for all models for a batch size of 70 and TF
 
 
 ## Comparision of Models
-Using TF-IDF preprocessing method
+Using TF-IDF preprocessing method   
 ![image](visualizations/classification/modelsComparision.jpg)
 
 
