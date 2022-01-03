@@ -1,5 +1,14 @@
-# ML_with_Spark_Streaming
-Project carried out as a part of Big Data Course at PES University
+# Spam_Email_Classification_with_Spark_Streaming
+Project carried out as a part of Big Data Course at PES University.     
+A Distributed Real Time Spam Email Classification built using Apache Spark.    
+Classification Models like Naive Bayes(NB),Support Vector Machine(SVM), Logistic Regression(LR), Multi Layer Perceptron(MLP), Passive Aggressive Classifier(PA) and KMeans, CustomKMeans clustering models are trained on the dataset using preprocessing Methods like TF-IDF and Word2Vec Embedding Model, then the performance of each is compared below.
+
+## About Enron Spam Email Dataset
+Dataset Source: https://www.kaggle.com/wanderfj/enron-spam    
+Details:
+- Each record consists of 3 features - the subject, the email content and the label
+- Each email is one of 2 classes, spam or ham
+- 30k examples in train and 3k in test
 
 ## Commands for execution
 
@@ -47,3 +56,63 @@ pip3 install matplotlib
 pip3 install joblibspark
 pip3 install spark-nlp==3.3.4
 ```
+
+## Preliminary Analysis
+
+* Spam and Ham Emails distribution
+![image](visualizations/Spam_and_Ham_pie_chart.png)
+* Number of Spam and Ham emails in each batch
+![image](visualizations/Spam_Ham_per_batch_side_by_side.png)
+
+## Data Exploration
+A Spam and Ham Email Sample along with the average length, variance of ham and spam emails. 
+![image](visualizations/length.png)
+
+## Hyper Parameter Tuning
+Hyper Parameter Tuning is performed for all models for a batch size of 70 and TF-IDF preprocessing method
+1. Logistic Regression  
+![image](visualizations/classification/hyperParameterTuning/LR/LRTuning.jpg)
+2. Multi Layer Perceptron     
+![image](visualizations/classification/hyperParameterTuning/MLP/MLPTuning.jpg)
+3. Passive Aggressive Classifier    
+![image](visualizations/classification/hyperParameterTuning/PA/PATuning.png)
+4. Support Vector Machines  
+![image](visualizations/classification/hyperParameterTuning/SVM/SVMTuning.jpg)
+
+## Performance of the Models
+
+1. Logistic Regression  
+![image](visualizations/classification/model_metrics/LR_metrics.png)
+2. Multi Layer Perceptron   
+![image](visualizations/classification/model_metrics/MLP_metrics.png)
+3. Naive Bayes  
+![image](visualizations/classification/model_metrics/NB_metrics.png)
+4. Passive Aggressive   
+![image](visualizations/classification/model_metrics/PA_metrics.png)
+5. Support Vector Machines  
+![image](visualizations/classification/model_metrics/SVM_metrics.png)
+
+
+## Comparision of Models
+Using TF-IDF preprocessing method
+![image](visualizations/classification/modelsComparision.jpg)
+
+
+## Comparision of preprocessing methods
+![image](visualizations/classification/Comparision_of_Preprocessing_Methods.jpg)
+
+
+## Performance of Models with varying streaming batch size
+![image](visualizations/classification/varyingBatchSize/MetricsforVaryingbatchsize.jpg)
+![image](visualizations/classification/varyingBatchSize/TimeForVaryingBatchSize.png)
+
+## Spam Classification as a Clustering Problem
+1. Cluster Visualization assuming there are 2 clusters
+![image](visualizations/clustering/2ClustersVisualization.jpeg)
+2. Cluster Visualization assuming there are 3 clusters
+![image](visualizations/clustering/3ClustersVisualisation.jpeg)
+3. Cluster Visualization assuming there are 4 clusters
+![image](visualizations/clustering/4ClustersVisualization.jpeg)
+
+## WCSS for each batch on an endless stream with Custom KMeans Clustering Model
+![image](visualizations/clustering/ClusterDifference.jpeg)
